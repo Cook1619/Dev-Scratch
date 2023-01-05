@@ -54,3 +54,33 @@ console.log(`Time Elapsed: ${(time2 - time1) / 1000} seconds.`);
 
 // Simplified
 // O(n^2 + n^3) --> O(n^3)
+
+// * Space complexity
+// - Most primitives (booleans, numbers, undefined, null) are constant space
+// - Strings require O(n) space (where n is the string length)
+// - Reference types are generally O(n), where n is the length for arrays, or the number of keys for objects
+
+function sum(arr) {
+  let total = 0;
+  for (let i = 1; i <= arr.length; i++) {
+    total += arr[i];
+  }
+  return total;
+}
+// As far as space goes now matter how large or small the array grows this is still O(1)
+// This references the 2 variables created
+
+// Logs
+
+// * log˅2(8) = 3  --> 2^3 = 8
+// the 2 goes below the word log, its the inverse or powers, this is basically saying 2 * 2 * 2 = 8
+// * log === log˅2
+
+/* 
+    8
+/2  4 
+/2  2
+/2  1
+
+= log(8) = 3
+*/
