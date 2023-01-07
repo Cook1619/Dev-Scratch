@@ -1,6 +1,8 @@
 // What is Big O Nation?
 // A way to generalize code, review code to see what code is 'best' aka more performant
 // It allow us to talk formally about how the runtime of an algorithm grows as the input grows
+// To analyze the performance of an algorithm, we use Big O Notation
+// Big O  can give us a high level understanding of the time or space complexity of an algorithm
 
 // Why do we care?
 // faster, less memory intensive
@@ -41,7 +43,7 @@ console.log(`Time Elapsed: ${(time2 - time1) / 1000} seconds.`);
 // Problem with this method it there are a lot of variables to time, the better solution is counting the operations
 
 // Simplifying Big O Expressions
-// ! Contants Don't Matter
+// ! Constants Don't Matter
 // * O(2n)  --> O(n) // middle
 // * O(500)  --> O(1) // fastest
 // * O(13n^2)  --> O(n^2) // slowest
@@ -84,3 +86,29 @@ function sum(arr) {
 
 = log(8) = 3
 */
+
+if (typeof str !== "string") {
+  throw new Error(`Input is not of type string`);
+}
+
+function reverseString1(str) {
+  return str.split("").reverse().join("");
+}
+
+console.log(reverseString1("Hello"));
+
+function reverseString2(str) {
+  let newString = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    newString += str[i];
+  }
+  return newString;
+}
+
+console.log(reverseString2("Hello"));
+
+// Scaling vertically means giving your computer more power in forms of ram, cpu, and hard disc space to handle the load (terraform)
+// Scaling horizontally means adding more computers to handle the load (more k8 clusters)
+
+//! Explain how a web application communicates with an api to a 5 year old any tech terms?
+// * Easiest example I can come up with is like when we go out to a restaurant and we have us, the waiter, and cooks in the kitchen. When we go to the restaurant we give the waiter our order (REQUEST), then the waiter gives our order to the cooks. When the food is done the waiter then goes back to the kitchen to bring our food to us. Likewise, during this time we can tell the waiter if we want a small change to our order, or cancel our order and start over.
