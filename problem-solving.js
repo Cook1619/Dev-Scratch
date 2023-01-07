@@ -48,20 +48,86 @@ function charCount(str) {
    - Then incorporate that difficulty back in
 */
 
-function charCount(str){
+function charCount(str) {
   // make an object to return at the end
-  const result = {}
+  const result = {};
   // loop over string evaluating each char
-  for(let i = 0; i < str.length; i++){
-    let char = str[i].toLowerCase()
-     // if the char is a num/letter and is a key in object, add one to count
-    if(result[char] > 0){
-      result[char]++;
-      // if the char is a num/letter and is NOT a key in object, add it and set value to one
-    }else {
-      result[char] = 1
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i].toLowerCase();
+    // checks for alpha numeric characters
+    if (/[a-z0-9]/.test(char)) {
+      // if the char is a num/letter and is a key in object, add one to count
+      if (result[char] > 0) {
+        result[char]++;
+        // if the char is a num/letter and is NOT a key in object, add it and set value to one
+      } else {
+        result[char] = 1;
+      }
     }
   }
   // return object
   return result;
 }
+
+console.log(charCount("HelLo"));
+
+// Refaactored using for of, if you we us a for of it gives us each individual char immediatly without have to use i in the for loop
+function charCount2(str) {
+  // make an object to return at the end
+  const result = {};
+  // loop over string evaluating each char
+  for (let char of str) {
+    char = char.toLowerCase();
+    // checks for alpha numeric characters
+    if (/[a-z0-9]/.test(char)) {
+      // if the char is a num/letter and is a key in object, add one to count
+      result[char] > 0 ? result[char]++ : (result[char] = 1);
+    }
+  }
+  // return object
+  return result;
+}
+
+console.log(charCount2("HelLo"));
+
+// 55% more performant then regex
+function isAlphaNumeric(char) {
+  let code = char.charCodeAt(0);
+  if (
+    !(code > 47 && code < 58) && // numeric (0-9)
+    !(code > 64 && code < 91) && // upper alpha (A-Z)
+    !(code > 96 && code < 123) // lower alpha (a-z)
+  ) {
+    return false;
+  }
+  return true;
+}
+
+function charCount3(str) {
+  // make an object to return at the end
+  const result = {};
+  // loop over string evaluating each char
+  for (let char of str) {
+    // checks for alpha numeric characters
+    if (isAlphaNumeric(char)) {
+      char = char.toLowerCase();
+      // if the char is a num/letter and is a key in object, add one to count
+      result[char] > 0 ? result[char]++ : (result[char] = 1);
+    }
+  }
+  // return object
+  return result;
+}
+
+console.log(charCount3("HelLo"));
+
+/*
+  * Refactoring Questions
+  - Can you check the result?
+  - Can you derive the result differently?
+  - Can you understand it at a glance?
+  - Can you uise the result of method for some other problem?
+  - Can you improve the performance of your solution?
+  - Can you think of other ways to refactor?
+  - How have other people solved this problem?
+*/
