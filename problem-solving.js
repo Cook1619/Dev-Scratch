@@ -36,3 +36,32 @@ function charCount(str) {
   // if char is something else (space, period, etc) don't do anything
   // return object
 }
+
+// * Solve and simplify
+/* 
+  If you can't solve the problem, solve a simpler problem, if you can't figure out one piece of the problem, try to work around it and solve everything else
+  By doing this, it's quite possible this problem may become easier to figure out and pieces will click into place
+  So 4 steps
+   - Find the core difficulty in what you're trying to do
+   - Temporarily ignore that difficulty
+   - Write a simplified solution
+   - Then incorporate that difficulty back in
+*/
+
+function charCount(str){
+  // make an object to return at the end
+  const result = {}
+  // loop over string evaluating each char
+  for(let i = 0; i < str.length; i++){
+    let char = str[i].toLowerCase()
+     // if the char is a num/letter and is a key in object, add one to count
+    if(result[char] > 0){
+      result[char]++;
+      // if the char is a num/letter and is NOT a key in object, add it and set value to one
+    }else {
+      result[char] = 1
+    }
+  }
+  // return object
+  return result;
+}
