@@ -48,6 +48,17 @@ function charCount(str) {
    - Then incorporate that difficulty back in
 */
 
+/*
+  * Refactoring Questions
+  - Can you check the result?
+  - Can you derive the result differently?
+  - Can you understand it at a glance?
+  - Can you uise the result of method for some other problem?
+  - Can you improve the performance of your solution?
+  - Can you think of other ways to refactor?
+  - How have other people solved this problem?
+*/
+
 function charCount(str) {
   // make an object to return at the end
   const result = {};
@@ -120,14 +131,3 @@ function charCount3(str) {
 }
 
 console.log(charCount3("HelLo"));
-
-/*
-  * Refactoring Questions
-  - Can you check the result?
-  - Can you derive the result differently?
-  - Can you understand it at a glance?
-  - Can you uise the result of method for some other problem?
-  - Can you improve the performance of your solution?
-  - Can you think of other ways to refactor?
-  - How have other people solved this problem?
-*/
