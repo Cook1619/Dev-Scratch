@@ -6,9 +6,9 @@
 // EXAMPLE
 // ? Write a function called same, which accepts two arrays. The function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same
 
-// Brute force solutioon
+// Brute force solution
 function same(arr1, arr2) {
-  // if the 2 arrays have different lengths it will be false immediatly, no reason to do anything else
+  // if the 2 arrays have different lengths it will be false immediately, no reason to do anything else
   if (arr1.length !== arr2.length) {
     return false;
   }
@@ -57,7 +57,6 @@ function same2(arr1, arr2) {
 // same2([1,2,1],[4,4,1]) // false (must be same frequency)
 
 function validAnagram(string1, string2) {
-  // add whatever parameters you deem necessary - good luck!
   if (string1.length !== string2.length) {
     return false;
   }
