@@ -53,7 +53,7 @@ function charCount(str) {
   - Can you check the result?
   - Can you derive the result differently?
   - Can you understand it at a glance?
-  - Can you uise the result of method for some other problem?
+  - Can you use the result of method for some other problem?
   - Can you improve the performance of your solution?
   - Can you think of other ways to refactor?
   - How have other people solved this problem?
@@ -82,7 +82,7 @@ function charCount(str) {
 
 console.log(charCount("HelLo"));
 
-// Refaactored using for of, if you we us a for of it gives us each individual char immediatly without have to use i in the for loop
+// Refactored using for of, if you we us a for of it gives us each individual char immediately without have to use i in the for loop
 function charCount2(str) {
   // make an object to return at the end
   const result = {};
