@@ -61,8 +61,13 @@ function binarySearch(arr, val) {
 */
 function stringSearch(long, short) {
   let count = 0;
+  // We do 2 loops, one outer loop going over the long string were looking for a match, second one looping over the string were trying to find a match for
   for (let i = 0; i < long.length; i++) {
     for (let j = 0; j < short.length; j++) {
+      // So these conditionals are a little tricky, but this can be thought of as looking ahead in the long string
+      // So were never checking for a match, we just handle for other cases (short[j] === long[i])
+      // What we care about is if there isn't a match we break out of the inner loop
+      // If j has reached the end of the short string we know we have a match and to increment the counter
       if (short[j] !== long[i + j]) break;
       if (j === short.length - 1) count++;
     }
