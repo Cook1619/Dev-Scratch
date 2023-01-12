@@ -37,6 +37,7 @@ function linearSearch(arr, value) {
    - If the value is to large, move the right pointer down
   - If you never find the value return -1
 */
+// O(log n)
 function binarySearch(arr, val) {
   let start = 0;
   let end = arr.length - 1;
@@ -48,3 +49,30 @@ function binarySearch(arr, val) {
   }
   return arr[middle] === val ? middle : -1;
 }
+
+/*
+  - Creating a function which takes in 2 strings, one being the longer string, the second being the pattern were searching for
+  - Loop over the longer string
+  - Loop over the shorter string
+  - If the characters don't match, break out of the inner loop
+  - If the chracters do match, keep going
+  - If you complete the inner loop and find a match, increment the count of matches
+  - Return count 
+*/
+function stringSearch(long, short) {
+  let count = 0;
+  // We do 2 loops, one outer loop going over the long string were looking for a match, second one looping over the string were trying to find a match for
+  for (let i = 0; i < long.length; i++) {
+    for (let j = 0; j < short.length; j++) {
+      // So these conditionals are a little tricky, but this can be thought of as looking ahead in the long string
+      // So were never checking for a match, we just handle for other cases (short[j] === long[i])
+      // What we care about is if there isn't a match we break out of the inner loop
+      // If j has reached the end of the short string we know we have a match and to increment the counter
+      if (short[j] !== long[i + j]) break;
+      if (j === short.length - 1) count++;
+    }
+  }
+  return count;
+}
+
+console.log(stringSearch("thiswillbeabigwill", "will"));
