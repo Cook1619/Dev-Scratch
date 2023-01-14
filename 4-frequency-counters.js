@@ -64,6 +64,7 @@ function validAnagram(string1, string2) {
   let fc2 = {};
 
   for (let val of string1.split("")) {
+    // if we haven't seen val, we put the value on the object and increment
     fc1[val] = (fc1[val] || 0) + 1;
   }
 
@@ -120,3 +121,36 @@ function validAnagram(first, second) {
 
 // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
 // validAnagram('anagrams', 'nagaramm')
+// Frequency counter with numbers as input
+function sameFrequency(num1, num2) {
+  // good luck. Add any arguments you deem necessary.
+  const num1ToString = num1.toString().split("");
+  const num2ToString = num2.toString().split("");
+
+  if (num1ToString.length !== num2ToString.length) {
+    return false;
+  }
+  const fc1 = {};
+  const fc2 = {};
+
+  for (let i = 0; i < num1ToString.length; i++) {
+    fc1[num1ToString[i]] = (fc1[num1ToString[i]] || 0) + 1;
+  }
+
+  for (let i = 0; i < num2ToString.length; i++) {
+    fc2[num2ToString[i]] = (fc2[num2ToString[i]] || 0) + 1;
+  }
+  for (key in fc1) {
+    if (fc1[key] !== fc2[key]) {
+      return false;
+    }
+  }
+  for (key in fc2) {
+    if (fc2[key] !== fc1[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+sameFrequency(182, 281);
