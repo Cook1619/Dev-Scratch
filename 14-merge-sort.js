@@ -57,7 +57,7 @@ function merge(left, right) {
 //   merge([1,10,50],[2,14,99,100])
 
 // Another implementation which makes more sense to me, but longer
-function merge(arr1, arr2) {
+function merge2(arr1, arr2) {
   // create results array to push on values
   const results = [];
   // this makes it easier to me then reading nested loops
@@ -89,10 +89,25 @@ function merge(arr1, arr2) {
   return results;
 }
 
-merge([1, 10, 50], [2, 14, 99, 100]);
+// merge2([1, 10, 50], [2, 14, 99, 100]);
 
 // Sorting part of merge sort :-)
 /*
   - Break up the array into halves until you have arrays that are empty or have one element
   - Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full of the array
+  - Once the array has been merged back together, return the merged (and sorted) array.
 */
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  // finds the middle of array and divides by 2 to get the middle point of the array
+  let mid = Math.floor(arr.length / 2);
+  // Both of these get called until the base case is met
+  // makes an array from the start to the mid
+  // this will finish splitting up the array until the base case is finish, then right will get evaluated and do the same thing
+  let left = mergeSort(arr.slice(0, mid));
+  // makes an array from the mid to the end
+  let right = mergeSort(arr.slice(mid));
+  return merge2(left, right);
+}
+
+mergeSort([10, 24, 76, 73, 72, 1, 9]);
