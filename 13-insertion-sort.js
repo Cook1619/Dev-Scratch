@@ -8,6 +8,7 @@
     - Continue to the next element and if it is in the incorrect order, iterate through the sorted portion (the left side) to place the element in the correct place.
     - Repeat until the array is sorted
 */
+// O(n^2)
 function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
     let currentVal = arr[i];
