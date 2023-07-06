@@ -12,3 +12,9 @@
 ## save and exit - :wq
 ## if you get stuck - ESC :q! or ctrl + c :q!
 
+# Shell commands
+
+## show your current shell - echo $0 || echo %SHELL
+## reload shell - source <shell config location>
+
+
