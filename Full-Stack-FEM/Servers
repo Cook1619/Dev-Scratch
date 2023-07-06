@@ -1,3 +1,16 @@
 #  What is a server?
 ## Serves a request from an api or user input
 ## 
+# What is hashing?
+## Taking an input and running it threw a hashing mathematical function and outputs a hash
+
+# Different hashing methods and outputs
+ - openssl md5 foo
+ - MD5(foo)= 286755fad04869ca523320acce0dc6a4
+
+ - $ openssl sha1 foo
+ - SHA1(foo)= c8fed00eb2e87f1cee8e90ebbe870c190ac3848c
+
+# Gold Standard
+ - openssl sha256 foo
+ - SHA256(foo)= 6b3a55e0261b0304143f805a24924d0c1c44524821305f31d9277843b8a10f4e
