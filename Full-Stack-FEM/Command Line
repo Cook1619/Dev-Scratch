@@ -1,0 +1,14 @@
+# Simple terminal command
+## cd - move up one directory
+## pwd - print working directory
+## clear - clear terminal output
+## ctrl + c -  exit program
+## cd ~ - navigate to home directory
+
+# VIM commands
+## insert mode  - i
+## normal mode - ESC
+## command mode - :
+## save and exit - :wq
+## if you get stuck - ESC :q! or ctrl + c :q!
+
