@@ -28,3 +28,6 @@ function getRandomElement<T>(args: T[]): T {
 // Now will return different item in the array no matter what the type
 getRandomElement([1,5,3,6,7,4]);
 getRandomElement(['test', 'tee', 'ttaaa', 'deee']);
+
+
+
