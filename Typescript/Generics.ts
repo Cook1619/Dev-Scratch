@@ -19,3 +19,12 @@ function identity<T>(arg: T): T {
 identity('test');
 identity(true);
 identity(4);
+
+function getRandomElement<T>(args: T[]): T {
+    const randomIndex = Math.floor(Math.random() * args.length);
+    return args[randomIndex];
+}
+
+// Now will return different item in the array no matter what the type
+getRandomElement([1,5,3,6,7,4]);
+getRandomElement(['test', 'tee', 'ttaaa', 'deee']);
