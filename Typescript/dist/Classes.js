@@ -24,6 +24,12 @@ class Player {
     get score() {
         return __classPrivateFieldGet(this, _Player_score, "f");
     }
+    set score(newScore) {
+        if (newScore < 0) {
+            throw new Error("Score must me positive");
+        }
+        __classPrivateFieldSet(this, _Player_score, newScore, "f");
+    }
     taunt() {
         console.log('Booooyah!');
     }
@@ -50,5 +56,8 @@ console.log(player1.getScore());
 console.log('Getter', player1.fullName);
 // gives us access to a private field
 console.log('score getter', player1.score);
+// will throw error
+// console.log('setter error', player1.score = -12)
+console.log('setter valid', player1.score = 12);
 const player2 = new Player("Kali", "Cook");
 player2.taunt();
