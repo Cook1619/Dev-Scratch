@@ -117,7 +117,7 @@ function collectOddValues(arr) {
     - Remember that strings are immutable so you will need to use methods like slice, substr, or substring to make copies of strings
     - To make copies of objects use Object.assign, or the spread operator
 */
-function collectOddValues(arr) {
+function collectOddValues2(arr) {
   let newArr = [];
   // base case
   if (arr.length === 0) {
@@ -128,7 +128,7 @@ function collectOddValues(arr) {
     newArr.push(arr[0]);
   }
   // makes copy of orig array
-  newArr = newArr.concat(collectOddValues(arr.slice(1)));
+  newArr = newArr.concat(collectOddValues2(arr.slice(1)));
   return newArr;
 }
 // This one works just like factorial, where its going to keep removing values from the array until its empty, but then were left with the call-stack
