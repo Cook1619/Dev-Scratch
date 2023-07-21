@@ -1,0 +1,30 @@
+# Cloud Computing
+- The cloud is a real place where your data is stored somewhere
+- Servers are powerful computers that handle your requests
+- Cloud computing is the delivery of computing services over the internet
+  - Compute 
+    - EC2
+    - Lamda
+  - Networking
+    - VPC
+    - Direct Connect
+  - Storage
+    - S3
+    - EBS
+  - Analytics
+    - Athena
+    - Redshift
+  - Development
+    - Cloud9
+    - CodeCommit
+  - Security
+    - IAM
+    - Macie
+  - Databases
+    - RDS
+    - DynamoDB
+- Virtual Machines
+  - Virtualization lets you divide hardware resources on a single physical server into smaller units
+  - Usage, your usage is placed on a meter, you only pay when you access it and only for what you use
+    - On demand - No long term commitments or upfront payments
+    - Pay as you go - Pay by the hours or the second for only what you use
