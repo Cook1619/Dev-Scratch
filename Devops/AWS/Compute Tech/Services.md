@@ -1,0 +1,55 @@
+# EC2
+- Elastic Compute Cloud
+    - EC2 allows you to rent and manage virtual servers in the cloud
+    - Servers are the physical compute hardware running in a data center
+    - EC2 instances are the virtual servers running on these physical servers
+    - Instances are not considered serverless
+    - EC2 is a foundational service used for managing your virtual instances
+    - You are able to provision an ec2 instance at the click of a button
+    - You can use a preconfigured template called an Amazon Machine Image (AMI) to launch your instance
+    - You can deploy your applications directly to ec2 instances
+    - You receive 750 compute hours per month on the free tier plan
+
+## When would you want to use an ec2 instance???
+ - Deploy a database
+    - Deploying a database to an EC2 gives you full control over the DB
+ - Deploy a web application
+    - Deploy to multiple AZ's to make the web application highly available
+## How to access your ec2 instance
+ - AWS management console
+    - You're able to configure and manage your instances via a web browser
+ - Secure Shell (SSH)
+    - SSH allows you to establish a secure connection to your instance from your local laptop
+ - EC2 instance connect (EIC)
+    - EIC allows you to use IAM policies to control the SSH access to your instances, removing the need to manage SSH keys
+ - AWS systems manager
+    - Systems manager allows you to manage your EC2 instances via web browser or the aws cli
+ - The most common way to connect to he linux ec2 instances is via SSH
+    - Generate a key pair
+       - a key pair which consists of a private key and a public key, proves your identity when connecting to an EC2 instance
+    - Connect SSH
+        - User -> SSH client on laptop (uses private key) -> EC2 instance (uses public key)
+    - Several pricing options
+        - On demand - fixed price in which you are billed down to the second
+            - You care about low cost without and without any upfront payment or long term commitment
+            - Applications have unpredictable workloads that can't be interrupted
+            - You app in under development
+            - Your workloads will not run longer then a year
+        - Spot - let you take advantage of unused ec2 capacity. Your request is fulfilled only if capacity is available (Cheapest option)
+            - Your not concerned about the start or stop time of your app
+            - Your workloads can be interrupted
+            - You app is only feasible at very low compute prices
+        - Reserved instances - RLS allow you to commit to a specific instance type in a particular region for 1 or 3 years
+            - Your app has a steady state usage, and you can commit to 1 or 3 years
+            - You can pay money upfront in order to receive a discount on On-Demand prices
+            - You app requires capacity reservation
+        - Dedicated hosts - allow you to pay for a physical server that is fully dedicated to running your instances
+            - You want to bring your own server-bound software license from vendors like microsoft or oracle
+            - You have regulatory or corporate compliance reqs around tenancy model
+        - Savings plans - allow you to commit to compute usage (measured per hour)
+            - You want to lower your bill across multiple compute services
+            - You want the flexibility to chance compute services, instance types, operating systems, or regions
+ - Elastic load balancing
+    - ELB - automatically distributes your incoming app traffic across multiple ec2 instances
+ - EC2 Auto Scaling
+    - EC2 auto scaling adds or removes ec2 instances automatically across AZ's, based on the need and changing demand
