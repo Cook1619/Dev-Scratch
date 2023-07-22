@@ -28,3 +28,47 @@
   - Usage, your usage is placed on a meter, you only pay when you access it and only for what you use
     - On demand - No long term commitments or upfront payments
     - Pay as you go - Pay by the hours or the second for only what you use
+## Advantages of cloud computing
+  - Go global in minutes
+    - You can deploy your applications around the world at the click of a button.
+  - Stop spending money running and maintaining data centers
+    - You can focus on building your applications instead of managing hardware.
+  - Increase speed and agility
+    - The provided services allow you to innovate more quickly and deliver your applications faster.
+  - Stop guessing capacity
+    - Your capacity is matched exactly to your demand.
+  - Trade capital expense for variable expense
+    - You pay for what you use instead of making huge upfront investments. 
+## CapEx vs OpEx
+- Capital Expenditures
+  - Capital expenditures are upfront purchases toward fixed assets.
+- Operating Expenses
+  - Operating expenses are funds used to run day-to-day operations.
+## Cloud Computing Models
+- Infrastructure as a Service (IaaS)
+  - Building Blocks 
+    - Fundamental building blocks that can be rented. 
+  - Web Hosting 
+    - Monthly subscription to have a hosting company serve your website
+- Software as a service (SaaS)
+    - Using a complete application, on demand, that someone offers to users.
+  - Email Provider
+    - Your personal email that you access through a web browser is a SaasS
+  - Platform as a service (PaaS)
+    - Used by developers
+      - Developer software using web based tools without worrying about the underlying infrastructure
+    - Storefront Website
+      - Tools provided to build a storefront app that runs on another company's service
+## Cloud Deployment models
+- Private cloud
+  - Also called on prem
+  - Exists in your internal data center
+  - Doesn't offer the advantages of cloud computing
+- Public cloud
+  - Offered by AWS
+  - You aren't responsible for the physical hardware
+  - Provides all the advantages of cloud computing
+- Hybrid (a combination between the 2)
+  - Highly sensitive data stored locally
+  - Web app runs on aws infrastructure
+  - AWS provides tools so they talk to each other
