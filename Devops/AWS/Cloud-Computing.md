@@ -72,3 +72,29 @@
   - Highly sensitive data stored locally
   - Web app runs on aws infrastructure
   - AWS provides tools so they talk to each other
+
+# Region
+- A region is a physical location in the that contains Availability zones (AZ's)
+- You should set up resources in regions closest to your users
+- Most  resources are tied to a specific region
+
+# Availability Zones
+- An Az is a collection of one or more data centers
+- An AZ contains the servers you are renting, and it's where you deploy applications
+- AN AZ is associated with a single region
+
+# Global infrastructure
+- The AWS Cloud infrastructure is built around AWS Regions and Availability Zones. An AWS Region is a
+physical location in the world where we have multiple Availability Zones. Availability Zones consist of
+one or more discrete data centers, each with redundant power, networking, and connectivity, housed
+in separate facilities. These Availability Zones offer you the ability to operate production applications
+and databases that are more highly available, fault-tolerant, and scalable than would be possible from
+a single data center. For the latest information on the AWS Cloud Availability Zones and AWS Regions,
+refer to AWS Global Infrastructure.
+- This means if you deploy your application across multiple availability zones and one goes down, it shouldn't affect your application
+
+# Edge Locations
+- Think of them as a mini data center, but it's not used to launch resources like EC2 instances, it's used to cache your content, through cloudfront CDN, reduce latency, and speed up delivery of applications
+
+# Latency
+- Is the time that passes between a user request and the resulting response, low latency is better than high latency
