@@ -1,0 +1,24 @@
+# Content Delivery
+- What is a CDN?
+  - Is a mechanism to deliver content quickly and efficiently based opn geographical location
+  - CDN's offer low latency
+- Amazon Cloudfront
+  - Is a CDN that delivers data and applications globally with low latency
+  - Makes content available globally or restricts based on location
+  - Speeds up delivery of static (all files served on client) or dynamic web content
+  - Uses edge locations to cache content (this is how is speeds delivery)
+  - Cache is just a copy of a file
+  - If content is already at an edge location CloudFront delivers it immediately, if not the CloudFront retrieves the files from the origin
+  - Users request data -> Goes to Cloudfront distribution (collection of edge locations (edge locations are a mini data center where files are cached)) sees if its there and sends back immediately-> then sends request to the origin(original source of content) (could be s3 bucket, ec2 instance etc.)
+  - CloudFront has security features like DDoS protection and geo-restriction
+- Global Accelerator
+  - Sends your users through the AWS global network when accessing your content, speeding up delivery
+  - improves latency and availability of a single region applications
+  - sends traffic through the AWS global network infrastructure
+  - 60% performance boost
+  - Auto re-routes traffic to healthy available regional endpoints
+- Amazon S3 Transfer Acceleration
+  - Improves content uploads and downloads to and from s3 buckets
+  - faster transfer of files over long distances
+  - Uses CloudFront globally distributed edge locations
+  - Customers around the world can upload to a central bucket
