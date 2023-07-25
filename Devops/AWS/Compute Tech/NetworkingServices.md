@@ -14,3 +14,29 @@
 ## VPC Peering
 - Allows you to connect 2 VPCs together
 - peering facilitates the transfer of data in a secure manner
+
+# Additional Networking Services
+- What is DNS?
+  - Domain Name System - translates the IP address
+  - IP - Internet Protocol, all computers have an IP address
+- Route 53
+  - Highly available DNS service that routes users to applications
+  - Domain name registration
+  - Health checks on AWS resources
+  - Supports hybrid cloud architectures
+- Direct Connect
+  - Is a dedicated physical network connection from your on prem data center to aws
+  - Dedicated physical network connection
+  - Connects your on-prem data center to AWS
+  - Data travel over a private network
+  - Supports hybrid env
+- AWS VPN
+  - Site to site vpn creates a secure connection between your internal networks and your AWS VPCS
+  - Data is auto encrypted
+  - Connects your on prem data center to AWS
+  - Supports hybrid env
+  - Slightly cheaper than Direct Connect
+- API Gateway
+  - Allows you to build and manage APIS
+  - Share data between systems
+  - Integrate with services like Lamda
