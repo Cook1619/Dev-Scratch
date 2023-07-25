@@ -50,9 +50,9 @@
   - Connect on-premises and cloud data
   - Supports a hybrid model
   - Recommended for:
-  - Moving backups to the cloud 
-  - Reducing costs for hybrid cloud storage 
-  - Low latency access to data
+    - Moving backups to the cloud 
+    - Reducing costs for hybrid cloud storage 
+    - Low latency access to data
 - AWS Backup
   - AWS Backup helps you manage data backups across multiple AWS services. 
   - Integrates with resources like EC2, EBS, EFS, and more
