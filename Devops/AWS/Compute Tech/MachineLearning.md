@@ -1,0 +1,33 @@
+# Machine Learning Services
+
+#### AI teaches computers to do thing that normally require human intelligence
+- Rekognition
+  - Allows you to automate image and video analysis
+  - Identify custom labels in images and videos
+  - Face and text detection in images and videos
+- Comprehend
+  - Is a natural-language processing (NLP) service that finds relationships in text
+  - uncovers insights and relationships
+  - analyzes text
+  - Can process social media posts to get incites
+- Polly
+  - turns text into speech
+  - mimics natural sounding human speech
+  - several voices across many languages
+  - can create a custom voice
+- SageMaker
+  - Helps you build, train, and deploy machine learning models quickly
+  - prepare data for models
+  - train and deploy models
+  - provides deep learning AMIS (EC2 instances)
+  - Sagemaker helps netflix amazon use machine learning models to help with video recommendations
+- Translate
+  - provides language translation
+  - real time and batch translation
+  - supports many languages
+  - Good to help with localization in an app
+- Lex
+  - helps your build conversational interfaces like chatbots
+  - recognizes speech and understands language
+  - build highly engaging chatbots
+  - powers amazon alexa
