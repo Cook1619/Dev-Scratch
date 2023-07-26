@@ -1,0 +1,35 @@
+# Migration and Transfer Services
+- Database Migration Service (DMS)
+  - helps you migrate on prem dbs within AWS
+  - continuous data replication
+  - support homogeneous or heterogeneous migrations
+    - Can migrate oracle to oracle
+    - Oracle ot Aurora SQL
+    - RDS oracle to Aurora MySQL
+  - Virtually no downtime
+- Server Migration Service (SMS)
+  - Allows you to migrate on prem servers to aws
+  - can migrate a group of servers
+  - Server saved as a new Amazon Machine Image (AMI)
+  - Use AMI to launch servers as Ec2 instances
+- Snow Family
+  - Snowcone
+    - Smaller member of the data transport device
+    - 8TB of usable storage
+    - Offline shipping
+    - online with aws datasync
+  - Snowcone and Snowball
+    - Petabyte data transfer solution
+    - cheaper than internet transfer
+    - Supports ec2 and lamdas
+  - Snowmobile
+    - Multi-petabyte or exabyte scale
+    - Data loaded to S3
+    - Securely transported
+  - Transfers via a physical device, now over the internet
+- Datasync
+  - Allows for online from on prem to aws storage like S3 or EFS
+  - Migrate data from on prem to AWS
+  - Copy data over direct connect or the internet
+  - Copy data between aws storage services
+  - Replicate data cross region or cross account
