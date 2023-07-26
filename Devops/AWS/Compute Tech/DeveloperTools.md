@@ -1,0 +1,32 @@
+# Developer Tool Services
+- Cloud9
+  - Allows you to write code within an IDE from within your web browser
+  - Write and debug code
+  - Supports popular programming languages
+  - preconfigures the dev env with the needed SDKs and libs
+- CodeCommit
+  - is a source control system like github for private git reps
+  - everything github does
+- CodeBuild
+  - Allows you to build and test your application source code
+  - compiles source code and runs test
+  - enables CI/CD
+  - produces build artifacts ready to be deployed
+- CodeDeploy
+  - manages the deployment of code to compute services in the cloud or on prem
+  - maintains application uptime
+- CodePipeline
+  - Automates the software release process
+  - quickly deliver new features and updates
+  - integrate with codebuild to run builds and unit tests
+  - integrates with codecommit to retrieve source code
+  - integrates with codedeploy to deploy your changes
+- X-ray
+  - Helps you debug production applications
+  - map application components
+  - view requests end to end
+  - Helps you track info about the sql queries and more
+- CodeStar
+  - Helps developers collab work on development projects
+  - Integrates with code commit, build, and deploy
+  - issue tracking dashboard
