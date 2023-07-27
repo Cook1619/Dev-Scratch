@@ -1,0 +1,29 @@
+# Additional Services
+### Auditing, monitoring and logging
+- These services give you insight into how well your systems are performing and help you proactivity find and resolve errors
+  - What is the current load on this ec2 instance?
+  - What is the root cause of this application error?
+  - Which execution path resulted in an error?
+- Cloudwatch
+  - Is a collection of services that help monitor and observe your cloud resources
+  - Collects metrics, logs, and events
+  - Detects anomalies in your env
+  - Set alarms
+  - Visualize logs
+  - Cloudwatch alarms can notify you if an ec2 instance goes into a stopped state or usage goes above a certain utilization
+  - Create a cloudwatch event rule to notify you when a root user api calls are detected in your account indicating root user activity
+- CloudTrail
+  - Tracks user activity and api calls within you account
+  - Log and retain account activity
+  - Tracks activities through the console, sdks, and sli
+  - Identify which user made changes
+  - Detect unusual activity in your account
+  - You can troubleshoot events over the past 90 days using the CloudTrail event history log to find the specific time an event occurred on a per-region basis. You can create a custom trail to extend past 90 days
+- Amazon Workspaces
+  - Allows you to host virtual desktops in the cloud
+  - Virtualize linux or windows desktops
+  - Enables employees to WFH
+- Amazon Connect
+  - is a cloud contact center service
+  - provides customer service functionality
+  - improves productivity of help desk agents
