@@ -8,3 +8,13 @@
   - component to component communication using messages
   - multiple components can add messages to the queue
   - messages are process async manner
+
+# SNS and SES
+ - Simple Notification Service
+   - allows you to send emails and text messages from your apps
+   - publish messages to a topic
+   - subscribers receive messages
+ - Simple Email Service
+   - is an email service that allows you to send richly formatted HTML emails from your apps
+   - Ideal choice for marketing campaigns or professional emails
+   - Unlike SNS, SES sends HTML emails
