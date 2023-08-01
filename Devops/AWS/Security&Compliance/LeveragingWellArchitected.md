@@ -1,0 +1,41 @@
+# Leveraging Well-Architected Framework
+### 6 Pillars
+- Operational Excellence (AWS Code Commit)
+  - The pillar for creating applications that effectively support production workloads
+  - Plan for and anticipate failure
+  - Deploy smaller, reversible changes
+  - Script operations as code
+  - Learn from failure and refine
+- Security (Cloudtrail)
+  - Putting mechanisms in place to help protect your systems and data
+  - Automate security tasks
+  - Assign only the least privileges required
+  - Encrypt data in transit and at rest
+  - Track who did what and when (CloudTrail)
+  - Ensure security at all application layers
+- Reliability (RDS Multi AZ deployments)
+  - Focuses on designing systems that work consistently and recover quickly
+  - Recover from failure automatically
+  - Scale horizontally for resilience
+  - Stop guessing capacity
+  - Manage chance through automation
+  - Test recovery procedures
+- Performance Efficiency (AWS Lamda zero admin)
+  - Focuses on the effective use of computing resources to meet system and business requirements while removing bottlenecks
+  - Use serverless architecture first
+  - Use multi-region deployments
+  - Delegate tasks to a cloud vendor
+  - Experiment with virtual resources
+- Cost Optimization (S3 intelligent tiering)
+  - Focuses on delivering optimum and resilient solutions at the east cost to the user
+  - Utilize consumption based pricing
+  - Implement cloud financial management
+  - Measure overall efficiency 
+  - Pay only for resources your application requires
+- Sustainability (EC@ auto scaling)
+  - Focuses on env impacts, especially energy consumption and efficiency
+  - Understand your impact
+  - Establish sustainability goals
+  - Maximize utilization
+  - Use managed services
+  - Reduce downstream impact
