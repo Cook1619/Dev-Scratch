@@ -1,13 +1,13 @@
-| Operation | Linked List | Array |
-|-----------|-------------|-------|
-| Push      | O(1)        | O(1)  |
-| Pop       | O(n)        | O(1)  |
-| Shift     | O(1)        | O(n)  |
-| Unshift   | O(1)        | O(n)  |
-| Insert    | O(n)        | O(n)  |
-| Delete    | O(n)        | O(n)  |
-| Lookup by Index | O(n)  | O(1)  |
-| Lookup by Value | O(n)  | O(n)  |
+                                        | Operation | Linked List | Array |
+                                        |-----------|-------------|-------|
+                                        | Push      | O(1)        | O(1)  |
+                                        | Pop       | O(n)        | O(1)  |
+                                        | Shift     | O(1)        | O(n)  |
+                                        | Unshift   | O(1)        | O(n)  |
+                                        | Insert    | O(n)        | O(n)  |
+                                        | Delete    | O(n)        | O(n)  |
+                                        | Lookup by Index | O(n)  | O(1)  |
+                                        | Lookup by Value | O(n)  | O(n)  |
 
 - **Push**: Both Linked Lists and Arrays have O(1) time complexity for push operations as they can add elements at the end in constant time.
 - **Pop**: Linked Lists have O(n) time complexity because they need to traverse the entire list to remove the last element. Arrays have O(1) time complexity as they can directly access the last element.
