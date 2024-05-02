@@ -16,3 +16,58 @@
 - **Insert/Delete**: Both Linked Lists and Arrays have O(n) time complexity for insert and delete operations as they may need to shift elements during these operations.
 - **Lookup by Index**: Linked Lists have O(n) time complexity because they need to traverse the list until they find the element at the given index. Arrays can directly access elements by their index in O(1) time.
 - **Lookup by Value**: Both Linked Lists and Arrays have O(n) time complexity for this operation as they may need to traverse all elements to find the given value.
+
+```js
+class Node {
+  constructor(value){
+    this.value = value
+    this.next = null
+  }
+}
+
+
+class LinkedList {
+  constructor(value){
+    const newNode = new Node(value)
+    this.head = newNode
+    this.tail = this.head
+    this.length = 1
+  }
+  push(value){
+    const newNode = new Node(value)
+    // checks to see if the linked list is empty
+    if (!this.head){
+      // if empty it sets the head and tail to the new node
+      this.head = newNode
+      this.tail = newNode
+    } else {
+      // if its not empty were are updating the pre-existing tail next pointer to the new node
+      this.tail.next = newNode
+      // now we set the new tail to the new node
+      this.tail = newNode
+    }
+    // increase length by 1
+    this.length++
+    // return the entire linked list
+    return this
+  }
+}
+
+let linkedList = new LinkedList(4)
+linkedList.push(7)
+linkedList ->
+LinkedList {
+  head: Node {
+    value: 4,
+    next: Node {
+      value: 7,
+      next: null,
+    },
+  },
+  tail: Node {
+    value: 7,
+    next: null,
+  },
+  length: 2,
+}
+```
