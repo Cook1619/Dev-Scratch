@@ -27,29 +27,61 @@ class Node {
 
 
 class LinkedList {
-  constructor(value){
-    const newNode = new Node(value)
-    this.head = newNode
-    this.tail = this.head
-    this.length = 1
+  constructor(value) {
+    const newNode = new Node(value);
+    this.head = newNode;
+    this.tail = this.head;
+    this.length = 1;
   }
-  push(value){
-    const newNode = new Node(value)
+  push(value) {
+    const newNode = new Node(value);
     // checks to see if the linked list is empty
-    if (!this.head){
+    if (!this.head) {
       // if empty it sets the head and tail to the new node
-      this.head = newNode
-      this.tail = newNode
+      this.head = newNode;
+      this.tail = newNode;
     } else {
       // if its not empty were are updating the pre-existing tail next pointer to the new node
-      this.tail.next = newNode
+      this.tail.next = newNode;
       // now we set the new tail to the new node
-      this.tail = newNode
+      this.tail = newNode;
     }
     // increase length by 1
-    this.length++
+    this.length++;
     // return the entire linked list
-    return this
+    return this;
+  }
+  /**
+ * Removes the last node from the linked list and returns it.
+ *
+ * If the list is empty (i.e., the head is null), it returns undefined.
+ * If the list has only one node, it sets both the head and tail to null.
+ * For lists with multiple nodes, it iterates through the list to find the second to last node,
+ * sets that as the new tail, and removes the reference to the last node.
+ *
+ * @returns {Node|undefined} The node that was removed, or undefined if the list was empty.
+ */
+  pop(value) {
+    // 0 items
+    if (!this.head) {
+      return undefined;
+    }
+    // multiple items normal state
+    let temp = this.head;
+    let pre = this.head;
+    while (temp.next) {
+      pre = temp;
+      temp = temp.next;
+    }
+    this.tail = pre;
+    this.tail.next = null;
+    this.length--;
+    // 1 item
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return temp;
   }
 }
 
