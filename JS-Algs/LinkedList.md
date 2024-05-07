@@ -128,6 +128,22 @@ class LinkedList {
     }
     return false
   }
+  insert(index, value){
+    // putting it at the beginning
+    if (index === 0) return this.unshift(value)
+    // putting it at the end
+    if (index === this.length) return this.push(value)
+    // if were trying to access an index not in scope
+    if(index < 0 || index > this.length) return false
+    let newNode = new Node(value);
+    // grabs the object of the value of 1 before
+    let temp = this.get(index - 1);
+    // setting the inserted node value to the previous
+    newNode.next = temp.next
+    temp.next = newNode
+    this.length++
+    return true
+  }
 }
 
 let linkedList = new LinkedList(4)
