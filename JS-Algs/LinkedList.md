@@ -83,6 +83,43 @@ class LinkedList {
     }
     return temp;
   }
+  unshift(value){
+    const newNode = new Node(value)
+    if(!this.head){
+        this.head = newNode
+        this.tail = newNode
+    }else {
+        newNode.next = this.head
+        this.head = newNode
+    }
+    this.length++
+    return this
+  }
+
+  shift() {
+    if(!this.head) return undefined
+    let temp = this.head;
+    this.head = this.head.next
+    // this removes the pointer to the heads next pointer
+    temp.next = null
+    this.length--
+    // edge case for when there is only one value in linked list
+    if(this.length === 0){
+        this.tail = null
+    }
+    return temp
+  }
+
+  get(index){
+    if(index < 0 || index >= this.length){
+        return undefined;
+    }
+    let temp = this.head;
+    for(let i = 0; i < index; i++){
+        temp = temp.next
+    }
+    return temp;
+  }
 }
 
 let linkedList = new LinkedList(4)
