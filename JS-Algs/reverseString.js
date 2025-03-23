@@ -33,3 +33,18 @@ function reverseString3(str){
 
 console.log(reverseString3("hello"))
 console.log(reverseString3("JavaScript"))
+
+function reverseStringRecursive(str) {
+    if (str === "") return ""; // Base case: empty string
+    return reverseStringRecursive(str.slice(1)) + str[0];
+}
+
+console.log(reverseStringRecursive("hello")); // "olleh"
+console.log(reverseStringRecursive("JavaScript"));
+
+function reverseStringReduce(str) {
+    return str.split("").reduce((reversed, char) => char + reversed, "");
+}
+
+console.log(reverseStringReduce("hello")); // "olleh"
+console.log(reverseStringReduce("JavaScript")); /
