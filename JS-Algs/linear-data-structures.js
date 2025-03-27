@@ -180,3 +180,39 @@ stack.push(3);
 console.log(stack.peek()); // 3
 console.log(stack.pop()); // 3
 console.log(stack.pop()); // 2
+
+
+/*
+    # Queues
+       A queue is a FIFO (First In, First Out) data structure. You can use an array or a linked list to implement a queue
+
+    ## Key Operations
+        - Enqueue: Add to the end
+        - Dequeue: Remove from the front
+*/
+
+class Queue {
+    constructor() {
+        this.items = [];
+    }
+
+    enqueue(value) {
+        this.items.push(value);
+    }
+
+    dequeue() {
+        return this.items.shift();
+    }
+
+    peek() {
+        return this.items[0];
+    }
+}
+
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+console.log(queue.peek()); // 1
+console.log(queue.dequeue()); // 1
+console.log(queue.dequeue()); // 2
