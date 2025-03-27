@@ -144,3 +144,39 @@ Resizing	         May require copying	        No resizing needed
 Cache Performance	 Good (cache locality)	        Poor
 Complexity	         Simple	                        More complex
 */
+
+/*
+    # Stacks
+        A stack is LIFO (Last im, first out) data structure. You can use an array to implement a stack in JS
+
+    ## Key Operations
+        - Push: Add to the top
+        - Pop: Remove from the top
+        - Peek: View the top element 
+*/
+
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+
+    push(value) {
+        this.items.push(value);
+    }
+
+    pop() {
+        return this.items.pop();
+    }
+
+    peek() {
+        return this.items[this.items.length - 1];
+    }
+}
+
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.peek()); // 3
+console.log(stack.pop()); // 3
+console.log(stack.pop()); // 2
