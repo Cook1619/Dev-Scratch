@@ -60,14 +60,6 @@ console.log('Test 3:', twoSumSorted([-1,0], -1)) // should return [1,2]
 console.log('Test 4:', twoSumSorted([1,2,3,4,4,9,56,90], 8)) //should return [4,5]
 
 
-
-
-
-
-
-
-
-
 // Easy Problem: Palindrome Check
 // Write a function that checks if a given string is a palindrome (reads the same forwards and backwards)
 // Ignore spaces, punctuation, and case sensitivity
@@ -134,7 +126,6 @@ function twoSumCount(arr, target) {
 // console.log('Test 4:', twoSumCount([3, 3], 6)) // should return 1 (one pair: [3,3])
 // console.log('Test 5:', twoSumCount([], 5)) // should return 0 (empty array)
 
-// ==================== EASIER PROBLEMS ====================
 
 // Problem 1: Find Maximum Number
 // Given an array of numbers, return the largest number
@@ -196,11 +187,67 @@ function sumArray(arr) {
 }
 
 // Test cases:
-console.log('\n=== Testing Sum Array ===')
-console.log('Result:', sumArray([1, 2, 3, 4, 5])) // should return 15
-console.log('Result:', sumArray([])) // should return 0
-console.log('Result:', sumArray([10])) // should return 10
-console.log('Result:', sumArray([-1, 1, -2, 2])) // should return 0 sumArray([-1, 1, -2, 2]) should return 0
+// console.log('\n=== Testing Sum Array ===')
+// console.log('Result:', sumArray([1, 2, 3, 4, 5])) // should return 15
+// console.log('Result:', sumArray([])) // should return 0
+// console.log('Result:', sumArray([10])) // should return 10
+// console.log('Result:', sumArray([-1, 1, -2, 2])) // should return 0
+
+
+// Problem 4: Find Average
+// Given an array of numbers, return the average (mean) of all numbers
+function findAverage(arr) {
+    if(arr.length === 0) return 0
+    const total = arr.reduce((acc, value) => acc + value, 0)
+    return total / arr.length
+}
+
+// Test cases:
+console.log('\n=== Testing Find Average ===')
+console.log('Result:', findAverage([1, 2, 3, 4, 5])) // should return 3
+console.log('Result:', findAverage([10])) // should return 10  
+console.log('Result:', findAverage([])) // should return 0 (or you could return null for empty array)
+console.log('Result:', findAverage([2, 4, 6])) // should return 4
+
+// Problem 5: Find Even Numbers
+// Given an array of numbers, return a new array with only the even numbers
+function findEvens(arr) {
+    // Your solution here
+}
+
+// Test cases:
+// console.log('\n=== Testing Find Evens ===')
+// console.log('Result:', findEvens([1, 2, 3, 4, 5, 6])) // should return [2, 4, 6]
+// console.log('Result:', findEvens([1, 3, 5])) // should return []
+// console.log('Result:', findEvens([])) // should return []
+// console.log('Result:', findEvens([0, -2, -1, 8])) // should return [0, -2, 8]
+
+// Problem 6: Count Vowels
+// Given a string, count how many vowels (a, e, i, o, u) it contains (case insensitive)  
+function countVowels(str) {
+    // Your solution here - think about how this is similar to countOccurrences!
+}
+
+// Test cases:
+// console.log('\n=== Testing Count Vowels ===')
+// console.log('Result:', countVowels("hello")) // should return 2 (e, o)
+// console.log('Result:', countVowels("programming")) // should return 3 (o, a, i) 
+// console.log('Result:', countVowels("xyz")) // should return 0
+// console.log('Result:', countVowels("AEIOU")) // should return 5
+// console.log('Result:', countVowels("")) // should return 0
+
+// Problem 7: Remove Duplicates  
+// Given an array, return a new array with duplicate values removed
+function removeDuplicates(arr) {
+    // Your solution here - hint: think about what you've learned with hash maps/sets!
+}
+
+// Test cases:
+// console.log('\n=== Testing Remove Duplicates ===')
+// console.log('Result:', removeDuplicates([1, 2, 2, 3, 3, 3])) // should return [1, 2, 3]
+// console.log('Result:', removeDuplicates(['a', 'b', 'a', 'c'])) // should return ['a', 'b', 'c'] 
+// console.log('Result:', removeDuplicates([])) // should return []
+// console.log('Result:', removeDuplicates([1, 1, 1])) // should return [1]
 
 
 
