@@ -96,6 +96,44 @@ console.log('Madam:', isPalindrome("Madam")) // should return true
 console.log('empty string:', isPalindrome("")) // should return true (empty string)
 console.log('single char:', isPalindrome("a")) // should return true (single character)
 
+// Two Sum with Target Count
+// Given an array of integers and a target sum, return how many pairs of numbers add up to the target.
+// Unlike the original Two Sum, we want to count ALL valid pairs, not just return the first one.
+
+function twoSumCount(arr, target) {
+    const hashMap = new Map() // Store: value -> count of how many times we've seen it
+    let count = 0
+    
+    for (let i = 0; i < arr.length; i++) {
+        const currentValue = arr[i]
+        const complement = target - currentValue
+        
+        // Step 1: Check if complement exists in hashMap
+        if (hashMap.has(complement)) {
+            // Add the number of times we've seen the complement
+            // Each occurrence of complement can pair with current value
+            count += hashMap.get(complement)
+        }
+        
+        // Step 2: Add current value to hashMap (or increment its count)
+        if (hashMap.has(currentValue)) {
+            hashMap.set(currentValue, hashMap.get(currentValue) + 1)
+        } else {
+            hashMap.set(currentValue, 1)
+        }
+    }
+    
+    return count
+}
+
+// Test cases:
+console.log('\n=== Testing Two Sum Count ===')
+console.log('Test 1:', twoSumCount([1, 2, 3, 4, 5], 5)) // should return 2 (pairs: [1,4] and [2,3])
+console.log('Test 2:', twoSumCount([1, 1, 1, 1], 2)) // should return 6 (six ways to pick two 1's that sum to 2)
+console.log('Test 3:', twoSumCount([1, 2, 3], 7)) // should return 0 (no pairs sum to 7)
+console.log('Test 4:', twoSumCount([3, 3], 6)) // should return 1 (one pair: [3,3])
+console.log('Test 5:', twoSumCount([], 5)) // should return 0 (empty array)
+
 
 
 
