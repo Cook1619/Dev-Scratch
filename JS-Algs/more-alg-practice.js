@@ -127,12 +127,80 @@ function twoSumCount(arr, target) {
 }
 
 // Test cases:
-console.log('\n=== Testing Two Sum Count ===')
-console.log('Test 1:', twoSumCount([1, 2, 3, 4, 5], 5)) // should return 2 (pairs: [1,4] and [2,3])
-console.log('Test 2:', twoSumCount([1, 1, 1, 1], 2)) // should return 6 (six ways to pick two 1's that sum to 2)
-console.log('Test 3:', twoSumCount([1, 2, 3], 7)) // should return 0 (no pairs sum to 7)
-console.log('Test 4:', twoSumCount([3, 3], 6)) // should return 1 (one pair: [3,3])
-console.log('Test 5:', twoSumCount([], 5)) // should return 0 (empty array)
+// console.log('\n=== Testing Two Sum Count ===')
+// console.log('Test 1:', twoSumCount([1, 2, 3, 4, 5], 5)) // should return 2 (pairs: [1,4] and [2,3])
+// console.log('Test 2:', twoSumCount([1, 1, 1, 1], 2)) // should return 6 (six ways to pick two 1's that sum to 2)
+// console.log('Test 3:', twoSumCount([1, 2, 3], 7)) // should return 0 (no pairs sum to 7)
+// console.log('Test 4:', twoSumCount([3, 3], 6)) // should return 1 (one pair: [3,3])
+// console.log('Test 5:', twoSumCount([], 5)) // should return 0 (empty array)
+
+// ==================== EASIER PROBLEMS ====================
+
+// Problem 1: Find Maximum Number
+// Given an array of numbers, return the largest number
+function findMax(arr) {
+    return arr.reduce((acc, currentValue) => {
+        return acc > currentValue ? acc : currentValue
+    }, arr[0]) 
+}
+
+// Test cases:
+// console.log('\n=== Testing Find Max ===')
+// console.log('Result:', findMax([1, 3, 2, 8, 5])) //should return 8
+// console.log('Result:', findMax([10])) // should return 10
+// console.log('Result:', findMax([5, 5, 5])) // should return 5
+// console.log('Result:', findMax([-1, -5, -3])) // should return -1
+
+// Problem 2: Count Occurrences  
+// Given an array and a target value, count how many times the target appears
+function countOccurrences(arr, target) {
+    // Original solution - forEach approach:
+    // let count = 0
+    // arr.forEach((value) => {
+    //     if(value === target){
+    //         count++
+    //     }
+    // })
+    // return count
+
+    // Alternative 1: Using filter
+    // return arr.filter(value => value === target).length
+
+    // Alternative 2: Using reduce
+    return arr.reduce((count, value) => {
+        return value === target ? count + 1 : count
+    }, 0)
+
+    // Alternative 3: Traditional for loop
+    // let count = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] === target) {
+    //         count++
+    //     }
+    // }
+    // return count
+}
+
+// Test cases:
+// console.log('\n=== Testing Count Occurrences ===')
+// console.log('Result:', countOccurrences([1, 2, 2, 3, 2], 2)) // should return 3
+// console.log('Result:', countOccurrences([1, 2, 3], 4)) // should return 0  
+// console.log('Result:', countOccurrences(['a', 'b', 'a', 'c', 'a'], 'a')) // should return 3
+
+// Problem 3: Sum of Array
+// Given an array of numbers, return the sum of all numbers
+function sumArray(arr) {
+    return arr.reduce((acc, value) => {
+        return acc + value
+    }, 0)
+}
+
+// Test cases:
+console.log('\n=== Testing Sum Array ===')
+console.log('Result:', sumArray([1, 2, 3, 4, 5])) // should return 15
+console.log('Result:', sumArray([])) // should return 0
+console.log('Result:', sumArray([10])) // should return 10
+console.log('Result:', sumArray([-1, 1, -2, 2])) // should return 0 sumArray([-1, 1, -2, 2]) should return 0
 
 
 
