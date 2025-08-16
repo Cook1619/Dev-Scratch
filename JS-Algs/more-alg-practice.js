@@ -60,14 +60,6 @@ console.log('Test 3:', twoSumSorted([-1,0], -1)) // should return [1,2]
 console.log('Test 4:', twoSumSorted([1,2,3,4,4,9,56,90], 8)) //should return [4,5]
 
 
-
-
-
-
-
-
-
-
 // Easy Problem: Palindrome Check
 // Write a function that checks if a given string is a palindrome (reads the same forwards and backwards)
 // Ignore spaces, punctuation, and case sensitivity
@@ -95,6 +87,167 @@ console.log('hello:', isPalindrome("hello")) // should return false
 console.log('Madam:', isPalindrome("Madam")) // should return true
 console.log('empty string:', isPalindrome("")) // should return true (empty string)
 console.log('single char:', isPalindrome("a")) // should return true (single character)
+
+// Two Sum with Target Count
+// Given an array of integers and a target sum, return how many pairs of numbers add up to the target.
+// Unlike the original Two Sum, we want to count ALL valid pairs, not just return the first one.
+
+function twoSumCount(arr, target) {
+    const hashMap = new Map() // Store: value -> count of how many times we've seen it
+    let count = 0
+    
+    for (let i = 0; i < arr.length; i++) {
+        const currentValue = arr[i]
+        const complement = target - currentValue
+        
+        // Step 1: Check if complement exists in hashMap
+        if (hashMap.has(complement)) {
+            // Add the number of times we've seen the complement
+            // Each occurrence of complement can pair with current value
+            count += hashMap.get(complement)
+        }
+        
+        // Step 2: Add current value to hashMap (or increment its count)
+        if (hashMap.has(currentValue)) {
+            hashMap.set(currentValue, hashMap.get(currentValue) + 1)
+        } else {
+            hashMap.set(currentValue, 1)
+        }
+    }
+    
+    return count
+}
+
+// Test cases:
+// console.log('\n=== Testing Two Sum Count ===')
+// console.log('Test 1:', twoSumCount([1, 2, 3, 4, 5], 5)) // should return 2 (pairs: [1,4] and [2,3])
+// console.log('Test 2:', twoSumCount([1, 1, 1, 1], 2)) // should return 6 (six ways to pick two 1's that sum to 2)
+// console.log('Test 3:', twoSumCount([1, 2, 3], 7)) // should return 0 (no pairs sum to 7)
+// console.log('Test 4:', twoSumCount([3, 3], 6)) // should return 1 (one pair: [3,3])
+// console.log('Test 5:', twoSumCount([], 5)) // should return 0 (empty array)
+
+
+// Problem 1: Find Maximum Number
+// Given an array of numbers, return the largest number
+function findMax(arr) {
+    return arr.reduce((acc, currentValue) => {
+        return acc > currentValue ? acc : currentValue
+    }, arr[0]) 
+}
+
+// Test cases:
+// console.log('\n=== Testing Find Max ===')
+// console.log('Result:', findMax([1, 3, 2, 8, 5])) //should return 8
+// console.log('Result:', findMax([10])) // should return 10
+// console.log('Result:', findMax([5, 5, 5])) // should return 5
+// console.log('Result:', findMax([-1, -5, -3])) // should return -1
+
+// Problem 2: Count Occurrences  
+// Given an array and a target value, count how many times the target appears
+function countOccurrences(arr, target) {
+    // Original solution - forEach approach:
+    // let count = 0
+    // arr.forEach((value) => {
+    //     if(value === target){
+    //         count++
+    //     }
+    // })
+    // return count
+
+    // Alternative 1: Using filter
+    // return arr.filter(value => value === target).length
+
+    // Alternative 2: Using reduce
+    return arr.reduce((count, value) => {
+        return value === target ? count + 1 : count
+    }, 0)
+
+    // Alternative 3: Traditional for loop
+    // let count = 0
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] === target) {
+    //         count++
+    //     }
+    // }
+    // return count
+}
+
+// Test cases:
+// console.log('\n=== Testing Count Occurrences ===')
+// console.log('Result:', countOccurrences([1, 2, 2, 3, 2], 2)) // should return 3
+// console.log('Result:', countOccurrences([1, 2, 3], 4)) // should return 0  
+// console.log('Result:', countOccurrences(['a', 'b', 'a', 'c', 'a'], 'a')) // should return 3
+
+// Problem 3: Sum of Array
+// Given an array of numbers, return the sum of all numbers
+function sumArray(arr) {
+    return arr.reduce((acc, value) => {
+        return acc + value
+    }, 0)
+}
+
+// Test cases:
+// console.log('\n=== Testing Sum Array ===')
+// console.log('Result:', sumArray([1, 2, 3, 4, 5])) // should return 15
+// console.log('Result:', sumArray([])) // should return 0
+// console.log('Result:', sumArray([10])) // should return 10
+// console.log('Result:', sumArray([-1, 1, -2, 2])) // should return 0
+
+
+// Problem 4: Find Average
+// Given an array of numbers, return the average (mean) of all numbers
+function findAverage(arr) {
+    if(arr.length === 0) return 0
+    const total = arr.reduce((acc, value) => acc + value, 0)
+    return total / arr.length
+}
+
+// Test cases:
+console.log('\n=== Testing Find Average ===')
+console.log('Result:', findAverage([1, 2, 3, 4, 5])) // should return 3
+console.log('Result:', findAverage([10])) // should return 10  
+console.log('Result:', findAverage([])) // should return 0 (or you could return null for empty array)
+console.log('Result:', findAverage([2, 4, 6])) // should return 4
+
+// Problem 5: Find Even Numbers
+// Given an array of numbers, return a new array with only the even numbers
+function findEvens(arr) {
+    // Your solution here
+}
+
+// Test cases:
+// console.log('\n=== Testing Find Evens ===')
+// console.log('Result:', findEvens([1, 2, 3, 4, 5, 6])) // should return [2, 4, 6]
+// console.log('Result:', findEvens([1, 3, 5])) // should return []
+// console.log('Result:', findEvens([])) // should return []
+// console.log('Result:', findEvens([0, -2, -1, 8])) // should return [0, -2, 8]
+
+// Problem 6: Count Vowels
+// Given a string, count how many vowels (a, e, i, o, u) it contains (case insensitive)  
+function countVowels(str) {
+    // Your solution here - think about how this is similar to countOccurrences!
+}
+
+// Test cases:
+// console.log('\n=== Testing Count Vowels ===')
+// console.log('Result:', countVowels("hello")) // should return 2 (e, o)
+// console.log('Result:', countVowels("programming")) // should return 3 (o, a, i) 
+// console.log('Result:', countVowels("xyz")) // should return 0
+// console.log('Result:', countVowels("AEIOU")) // should return 5
+// console.log('Result:', countVowels("")) // should return 0
+
+// Problem 7: Remove Duplicates  
+// Given an array, return a new array with duplicate values removed
+function removeDuplicates(arr) {
+    // Your solution here - hint: think about what you've learned with hash maps/sets!
+}
+
+// Test cases:
+// console.log('\n=== Testing Remove Duplicates ===')
+// console.log('Result:', removeDuplicates([1, 2, 2, 3, 3, 3])) // should return [1, 2, 3]
+// console.log('Result:', removeDuplicates(['a', 'b', 'a', 'c'])) // should return ['a', 'b', 'c'] 
+// console.log('Result:', removeDuplicates([])) // should return []
+// console.log('Result:', removeDuplicates([1, 1, 1])) // should return [1]
 
 
 
