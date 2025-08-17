@@ -216,25 +216,29 @@ function findEvens(arr) {
 }
 
 // Test cases:
-console.log('\n=== Testing Find Evens ===')
-console.log('Result:', findEvens([1, 2, 3, 4, 5, 6])) // should return [2, 4, 6]
-console.log('Result:', findEvens([1, 3, 5])) // should return []
-console.log('Result:', findEvens([])) // should return []
-console.log('Result:', findEvens([0, -2, -1, 8])) // should return [0, -2, 8]
+// console.log('\n=== Testing Find Evens ===')
+// console.log('Result:', findEvens([1, 2, 3, 4, 5, 6])) // should return [2, 4, 6]
+// console.log('Result:', findEvens([1, 3, 5])) // should return []
+// console.log('Result:', findEvens([])) // should return []
+// console.log('Result:', findEvens([0, -2, -1, 8])) // should return [0, -2, 8]
 
 // Problem 6: Count Vowels
 // Given a string, count how many vowels (a, e, i, o, u) it contains (case insensitive)  
 function countVowels(str) {
     const vowels = ['a', 'e', 'i', 'o', 'u']
+    const cleansedString = str.toLowerCase().split('')
+    return cleansedString.reduce((count, value) => {
+        return vowels.includes(value) ? count + 1 : count
+    }, 0)
 }
 
 // Test cases:
-// console.log('\n=== Testing Count Vowels ===')
-// console.log('Result:', countVowels("hello")) // should return 2 (e, o)
-// console.log('Result:', countVowels("programming")) // should return 3 (o, a, i) 
-// console.log('Result:', countVowels("xyz")) // should return 0
-// console.log('Result:', countVowels("AEIOU")) // should return 5
-// console.log('Result:', countVowels("")) // should return 0
+console.log('\n=== Testing Count Vowels ===')
+console.log('Result:', countVowels("hello")) // should return 2 (e, o)
+console.log('Result:', countVowels("programming")) // should return 3 (o, a, i) 
+console.log('Result:', countVowels("xyz")) // should return 0
+console.log('Result:', countVowels("AEIOU")) // should return 5
+console.log('Result:', countVowels("")) // should return 0
 
 // Problem 7: Remove Duplicates  
 // Given an array, return a new array with duplicate values removed
