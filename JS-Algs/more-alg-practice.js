@@ -203,29 +203,29 @@ function findAverage(arr) {
 }
 
 // Test cases:
-console.log('\n=== Testing Find Average ===')
-console.log('Result:', findAverage([1, 2, 3, 4, 5])) // should return 3
-console.log('Result:', findAverage([10])) // should return 10  
-console.log('Result:', findAverage([])) // should return 0 (or you could return null for empty array)
-console.log('Result:', findAverage([2, 4, 6])) // should return 4
+// console.log('\n=== Testing Find Average ===')
+// console.log('Result:', findAverage([1, 2, 3, 4, 5])) // should return 3
+// console.log('Result:', findAverage([10])) // should return 10  
+// console.log('Result:', findAverage([])) // should return 0 (or you could return null for empty array)
+// console.log('Result:', findAverage([2, 4, 6])) // should return 4
 
 // Problem 5: Find Even Numbers
 // Given an array of numbers, return a new array with only the even numbers
 function findEvens(arr) {
-    // Your solution here
+    return arr.filter((num) => num % 2 === 0)
 }
 
 // Test cases:
-// console.log('\n=== Testing Find Evens ===')
-// console.log('Result:', findEvens([1, 2, 3, 4, 5, 6])) // should return [2, 4, 6]
-// console.log('Result:', findEvens([1, 3, 5])) // should return []
-// console.log('Result:', findEvens([])) // should return []
-// console.log('Result:', findEvens([0, -2, -1, 8])) // should return [0, -2, 8]
+console.log('\n=== Testing Find Evens ===')
+console.log('Result:', findEvens([1, 2, 3, 4, 5, 6])) // should return [2, 4, 6]
+console.log('Result:', findEvens([1, 3, 5])) // should return []
+console.log('Result:', findEvens([])) // should return []
+console.log('Result:', findEvens([0, -2, -1, 8])) // should return [0, -2, 8]
 
 // Problem 6: Count Vowels
 // Given a string, count how many vowels (a, e, i, o, u) it contains (case insensitive)  
 function countVowels(str) {
-    // Your solution here - think about how this is similar to countOccurrences!
+    const vowels = ['a', 'e', 'i', 'o', 'u']
 }
 
 // Test cases:
