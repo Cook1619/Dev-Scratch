@@ -148,7 +148,10 @@ function firstNonRepeating(str) {
         } else {
             strMap.set(currentValue, 1)
         }
-        if(strMap.get(str[i]) === 1){
+    }
+    // need to ensure the map is built out first, then evaluate 
+    for (let i = 0; i < str.length; i++) {
+        if (strMap.get(str[i]) === 1) {
             return str[i]
         }
     }
@@ -163,6 +166,8 @@ function firstNonRepeating(str) {
 // Test the function (uncomment when ready)
 console.log(firstNonRepeating("hello")) // Should return "h"
 console.log(firstNonRepeating("javascript")) // Should return "j"
+console.log(firstNonRepeating("aabbcc")) // Should return null
+console.log(firstNonRepeating("abccba")) // Should return null - all chars repeat
 
 // Problem 3: Group Words by Length
 function groupByLength(words) {
