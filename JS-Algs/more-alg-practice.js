@@ -263,18 +263,59 @@ function removeDuplicates(arr) {
 // Returning ALL solutions (not just the first)
 // Avoiding duplicate triplets
 
-function threeSum(arr, ){
-
+function threeSum(arr) {
+    // Edge case: need at least 3 elements
+    if (arr.length < 3) return [];
+    
+    const result = [];
+    
+    // Step 1: Sort the array (crucial for avoiding duplicates and using two pointers)
+    arr.sort((a, b) => a - b);
+    
+    // Step 2: Loop through array, fixing each element as the first number
+    for (let i = 0; i < arr.length - 2; i++) {
+        // Skip duplicate values for the first number
+        if (i > 0 && arr[i] === arr[i - 1]) continue;
+        
+        const firstNum = arr[i];
+        const target = 0 - firstNum; // We need the other two numbers to sum to this
+        
+        // Step 3: Use Two Sum approach on the remaining array
+        let left = i + 1;
+        let right = arr.length - 1;
+        
+        while (left < right) {
+            const sum = arr[left] + arr[right];
+            
+            if (sum === target) {
+                // Found a valid triplet!
+                result.push([firstNum, arr[left], arr[right]]);
+                
+                // Skip duplicates for left and right pointers
+                while (left < right && arr[left] === arr[left + 1]) left++;
+                while (left < right && arr[right] === arr[right - 1]) right--;
+                
+                left++;
+                right--;
+            } else if (sum < target) {
+                left++; // Need a larger sum
+            } else {
+                right--; // Need a smaller sum
+            }
+        }
+    }
+    
+    return result;
 }
 
 
 // Test cases for Three Sum:
-// threeSum([-1, 0, 1, 2, -1, -4]) should return [[-1, -1, 2], [-1, 0, 1]]
-// threeSum([0, 1, 1]) should return [] (no triplets sum to 0)
-// threeSum([0, 0, 0]) should return [[0, 0, 0]]
-// threeSum([-2, 0, 1, 1, 2]) should return [[-2, 0, 2], [-2, 1, 1]]
-// threeSum([1, 2, -2, -1]) should return [] (no triplets sum to 0)
-// threeSum([-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4]) should return multiple triplets
-threeSum([]) // should return [] (empty array)
-threeSum([1]) // should return [] (less than 3 elements)
-threeSum([1, 2]) // should return [] (less than 3 elements)
+console.log('\n=== Testing Three Sum ===')
+console.log('Test 1:', threeSum([-1, 0, 1, 2, -1, -4])) // should return [[-1, -1, 2], [-1, 0, 1]]
+console.log('Test 2:', threeSum([0, 1, 1])) // should return [] (no triplets sum to 0)
+console.log('Test 3:', threeSum([0, 0, 0])) // should return [[0, 0, 0]]
+console.log('Test 4:', threeSum([-2, 0, 1, 1, 2])) // should return [[-2, 0, 2], [-2, 1, 1]]
+console.log('Test 5:', threeSum([1, 2, -2, -1])) // should return [] (no triplets sum to 0)
+console.log('Test 6:', threeSum([])) // should return [] (empty array)
+console.log('Test 7:', threeSum([1])) // should return [] (less than 3 elements)
+console.log('Test 8:', threeSum([1, 2])) // should return [] (less than 3 elements)
