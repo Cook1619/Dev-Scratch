@@ -310,12 +310,50 @@ function threeSum(arr) {
 
 
 // Test cases for Three Sum:
-console.log('\n=== Testing Three Sum ===')
-console.log('Test 1:', threeSum([-1, 0, 1, 2, -1, -4])) // should return [[-1, -1, 2], [-1, 0, 1]]
-console.log('Test 2:', threeSum([0, 1, 1])) // should return [] (no triplets sum to 0)
-console.log('Test 3:', threeSum([0, 0, 0])) // should return [[0, 0, 0]]
-console.log('Test 4:', threeSum([-2, 0, 1, 1, 2])) // should return [[-2, 0, 2], [-2, 1, 1]]
-console.log('Test 5:', threeSum([1, 2, -2, -1])) // should return [] (no triplets sum to 0)
-console.log('Test 6:', threeSum([])) // should return [] (empty array)
-console.log('Test 7:', threeSum([1])) // should return [] (less than 3 elements)
-console.log('Test 8:', threeSum([1, 2])) // should return [] (less than 3 elements)
+// console.log('\n=== Testing Three Sum ===')
+// console.log('Test 1:', threeSum([-1, 0, 1, 2, -1, -4])) // should return [[-1, -1, 2], [-1, 0, 1]]
+// console.log('Test 2:', threeSum([0, 1, 1])) // should return [] (no triplets sum to 0)
+// console.log('Test 3:', threeSum([0, 0, 0])) // should return [[0, 0, 0]]
+// console.log('Test 4:', threeSum([-2, 0, 1, 1, 2])) // should return [[-2, 0, 2], [-2, 1, 1]]
+// console.log('Test 5:', threeSum([1, 2, -2, -1])) // should return [] (no triplets sum to 0)
+// console.log('Test 6:', threeSum([])) // should return [] (empty array)
+// console.log('Test 7:', threeSum([1])) // should return [] (less than 3 elements)
+// console.log('Test 8:', threeSum([1, 2])) // should return [] (less than 3 elements)
+
+
+// Problem: First Duplicate
+// Given an array of integers, find the first number that appears more than once.
+// Return the first duplicate you encounter when reading from left to right.
+// If no duplicates exist, return null.
+
+function firstDuplicate(arr) {
+    const dupMap = new Map();
+    for(let i = 0; i < arr.length; i++){
+        if(dupMap.has(arr[i])){
+            return arr[i]
+        }
+        dupMap.set(arr[i], 1)
+    }
+    return null
+}
+
+// function firstDuplicate(arr) {
+//     const seen = new Set()
+    
+//     for (let i = 0; i < arr.length; i++) {
+//         if (seen.has(arr[i])) {
+//             return arr[i]
+//         }
+//         seen.add(arr[i])
+//     }
+    
+//     return null
+// }
+// Test cases:
+console.log('\n=== Testing First Duplicate ===')
+console.log('Test 1:', firstDuplicate([2, 5, 1, 2, 3, 5, 1, 2, 4])) // should return 2 (first duplicate encountered)
+console.log('Test 2:', firstDuplicate([2, 1, 3, 5, 3, 2])) // should return 3 (3 appears before the second 2)
+console.log('Test 3:', firstDuplicate([2, 3, 1])) // should return null (no duplicates)
+console.log('Test 4:', firstDuplicate([])) // should return null (empty array)
+console.log('Test 5:', firstDuplicate([1])) // should return null (single element)
+console.log('Test 6:', firstDuplicate([5, 5])) // should return 5 (immediate duplicate)
