@@ -1,23 +1,23 @@
 // Two Sum
 // Given an array of integers and a target sum, return the indices of two numbers that add up to the target.
 
-function twoSum(arr, target){
+function twoSum(arr, target) {
     const hashMap = new Map() // Store: value -> index
-    
+
     for (let i = 0; i < arr.length; i++) {
         const currentValue = arr[i]
         const complement = target - currentValue  // What number do we need to find?
-        
+
         // Step 1: Check if complement exists in our hashMap
         if (hashMap.has(complement)) {
             // Found it! Return the indices
             return [hashMap.get(complement), i]
         }
-        
+
         // Step 2: If not found, add current value and its index to hashMap
         hashMap.set(currentValue, i)
     }
-    
+
     // Step 3: No solution found
     return null
 }
@@ -37,10 +37,10 @@ function twoSum(arr, target){
 function twoSumSorted(numbers, target) {
     let left = 0  // Start at beginning INDEX
     let right = numbers.length - 1  // Start at end INDEX
-    
+
     while (left < right) {
         const sum = numbers[left] + numbers[right]  // Add the VALUES
-        
+
         if (sum === target) {
             return [left + 1, right + 1]  // Return 1-indexed INDICES
         } else if (sum < target) {
@@ -54,10 +54,10 @@ function twoSumSorted(numbers, target) {
 
 // Test cases for Two Sum II:
 console.log('\n=== Testing Two Sum Sorted ===')
-console.log('Test 1:', twoSumSorted([2,7,11,15], 9)) //should return [1,2] (1-indexed!)
-console.log('Test 2:', twoSumSorted([2,3,4], 6)) //should return [1,3] 
-console.log('Test 3:', twoSumSorted([-1,0], -1)) // should return [1,2]
-console.log('Test 4:', twoSumSorted([1,2,3,4,4,9,56,90], 8)) //should return [4,5]
+console.log('Test 1:', twoSumSorted([2, 7, 11, 15], 9)) //should return [1,2] (1-indexed!)
+console.log('Test 2:', twoSumSorted([2, 3, 4], 6)) //should return [1,3] 
+console.log('Test 3:', twoSumSorted([-1, 0], -1)) // should return [1,2]
+console.log('Test 4:', twoSumSorted([1, 2, 3, 4, 4, 9, 56, 90], 8)) //should return [4,5]
 
 
 // Easy Problem: Palindrome Check
@@ -67,9 +67,9 @@ console.log('Test 4:', twoSumSorted([1,2,3,4,4,9,56,90], 8)) //should return [4,
 function isPalindrome(str) {
     const cleanString = str.toLowerCase().replace(/[^a-z0-9]/gi, '')
     let left = 0
-    let right = cleanString.length -1
-    while(left < right){
-        if (cleanString[left] !== cleanString[right]){
+    let right = cleanString.length - 1
+    while (left < right) {
+        if (cleanString[left] !== cleanString[right]) {
             return false
         }
         left++
@@ -95,18 +95,18 @@ console.log('single char:', isPalindrome("a")) // should return true (single cha
 function twoSumCount(arr, target) {
     const hashMap = new Map() // Store: value -> count of how many times we've seen it
     let count = 0
-    
+
     for (let i = 0; i < arr.length; i++) {
         const currentValue = arr[i]
         const complement = target - currentValue
-        
+
         // Step 1: Check if complement exists in hashMap
         if (hashMap.has(complement)) {
             // Add the number of times we've seen the complement
             // Each occurrence of complement can pair with current value
             count += hashMap.get(complement)
         }
-        
+
         // Step 2: Add current value to hashMap (or increment its count)
         if (hashMap.has(currentValue)) {
             hashMap.set(currentValue, hashMap.get(currentValue) + 1)
@@ -114,7 +114,7 @@ function twoSumCount(arr, target) {
             hashMap.set(currentValue, 1)
         }
     }
-    
+
     return count
 }
 
@@ -132,7 +132,7 @@ function twoSumCount(arr, target) {
 function findMax(arr) {
     return arr.reduce((acc, currentValue) => {
         return acc > currentValue ? acc : currentValue
-    }, arr[0]) 
+    }, arr[0])
 }
 
 // Test cases:
@@ -197,7 +197,7 @@ function sumArray(arr) {
 // Problem 4: Find Average
 // Given an array of numbers, return the average (mean) of all numbers
 function findAverage(arr) {
-    if(arr.length === 0) return 0
+    if (arr.length === 0) return 0
     const total = arr.reduce((acc, value) => acc + value, 0)
     return total / arr.length
 }
@@ -266,35 +266,35 @@ function removeDuplicates(arr) {
 function threeSum(arr) {
     // Edge case: need at least 3 elements
     if (arr.length < 3) return [];
-    
+
     const result = [];
-    
+
     // Step 1: Sort the array (crucial for avoiding duplicates and using two pointers)
     arr.sort((a, b) => a - b);
-    
+
     // Step 2: Loop through array, fixing each element as the first number
     for (let i = 0; i < arr.length - 2; i++) {
         // Skip duplicate values for the first number
         if (i > 0 && arr[i] === arr[i - 1]) continue;
-        
+
         const firstNum = arr[i];
         const target = 0 - firstNum; // We need the other two numbers to sum to this
-        
+
         // Step 3: Use Two Sum approach on the remaining array
         let left = i + 1;
         let right = arr.length - 1;
-        
+
         while (left < right) {
             const sum = arr[left] + arr[right];
-            
+
             if (sum === target) {
                 // Found a valid triplet!
                 result.push([firstNum, arr[left], arr[right]]);
-                
+
                 // Skip duplicates for left and right pointers
                 while (left < right && arr[left] === arr[left + 1]) left++;
                 while (left < right && arr[right] === arr[right - 1]) right--;
-                
+
                 left++;
                 right--;
             } else if (sum < target) {
@@ -304,7 +304,7 @@ function threeSum(arr) {
             }
         }
     }
-    
+
     return result;
 }
 
@@ -328,8 +328,8 @@ function threeSum(arr) {
 
 function firstDuplicate(arr) {
     const dupMap = new Map();
-    for(let i = 0; i < arr.length; i++){
-        if(dupMap.has(arr[i])){
+    for (let i = 0; i < arr.length; i++) {
+        if (dupMap.has(arr[i])) {
             return arr[i]
         }
         dupMap.set(arr[i], 1)
@@ -339,21 +339,68 @@ function firstDuplicate(arr) {
 
 // function firstDuplicate(arr) {
 //     const seen = new Set()
-    
+
 //     for (let i = 0; i < arr.length; i++) {
 //         if (seen.has(arr[i])) {
 //             return arr[i]
 //         }
 //         seen.add(arr[i])
 //     }
-    
+
 //     return null
 // }
 // Test cases:
-console.log('\n=== Testing First Duplicate ===')
-console.log('Test 1:', firstDuplicate([2, 5, 1, 2, 3, 5, 1, 2, 4])) // should return 2 (first duplicate encountered)
-console.log('Test 2:', firstDuplicate([2, 1, 3, 5, 3, 2])) // should return 3 (3 appears before the second 2)
-console.log('Test 3:', firstDuplicate([2, 3, 1])) // should return null (no duplicates)
-console.log('Test 4:', firstDuplicate([])) // should return null (empty array)
-console.log('Test 5:', firstDuplicate([1])) // should return null (single element)
-console.log('Test 6:', firstDuplicate([5, 5])) // should return 5 (immediate duplicate)
+// console.log('\n=== Testing First Duplicate ===')
+// console.log('Test 1:', firstDuplicate([2, 5, 1, 2, 3, 5, 1, 2, 4])) // should return 2 (first duplicate encountered)
+// console.log('Test 2:', firstDuplicate([2, 1, 3, 5, 3, 2])) // should return 3 (3 appears before the second 2)
+// console.log('Test 3:', firstDuplicate([2, 3, 1])) // should return null (no duplicates)
+// console.log('Test 4:', firstDuplicate([])) // should return null (empty array)
+// console.log('Test 5:', firstDuplicate([1])) // should return null (single element)
+// console.log('Test 6:', firstDuplicate([5, 5])) // should return 5 (immediate duplicate)
+
+
+
+// Problem: Find Missing Number
+// Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, 
+// find the one number that is missing from the array.
+// The array will always have exactly one missing number.
+
+function findMissingNumber(nums) {
+    const seen = new Set(nums)
+
+    for (let i = 0; i <= nums.length; i++) {
+        if (!seen.has(i)) {
+            return i
+        }
+    }
+}
+
+// Test cases:
+// console.log('\n=== Testing Find Missing Number ===')
+// console.log('Test 1:', findMissingNumber([3, 0, 1])) // should return 2 (missing from 0,1,2,3)
+// console.log('Test 2:', findMissingNumber([0, 1])) // should return 2 (missing from 0,1,2)
+// console.log('Test 3:', findMissingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1])) // should return 8 (missing from 0-9)
+// console.log('Test 4:', findMissingNumber([0])) // should return 1 (missing from 0,1)
+// console.log('Test 5:', findMissingNumber([1])) // should return 0 (missing from 0,1)
+// console.log('Test 6:', findMissingNumber([1, 2, 3, 4, 5])) // should return 0 (missing from 0-5)
+
+
+// Problem: Contains Duplicate
+// Given an integer array, return true if any value appears at least twice in the array, 
+// and return false if every element is distinct.
+// This is asking "does this array have ANY duplicates?" rather than "what is the first duplicate?"
+
+function containsDuplicate(nums) {
+   const numLength = nums.length
+   const newArr = new Set(nums)
+   return numLength > newArr.size
+}
+
+// Test cases:
+// console.log('\n=== Testing Contains Duplicate ===')
+console.log('Test 1:', containsDuplicate([1, 2, 3, 1])) // should return true (1 appears twice)
+console.log('Test 2:', containsDuplicate([1, 2, 3, 4])) // should return false (all distinct)
+console.log('Test 3:', containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])) // should return true (multiple duplicates)
+console.log('Test 4:', containsDuplicate([])) // should return false (empty array)
+console.log('Test 5:', containsDuplicate([1])) // should return false (single element)
+console.log('Test 6:', containsDuplicate([5, 5])) // should return true (immediate duplicate)
