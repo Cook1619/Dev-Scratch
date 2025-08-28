@@ -398,9 +398,59 @@ function containsDuplicate(nums) {
 
 // Test cases:
 // console.log('\n=== Testing Contains Duplicate ===')
-console.log('Test 1:', containsDuplicate([1, 2, 3, 1])) // should return true (1 appears twice)
-console.log('Test 2:', containsDuplicate([1, 2, 3, 4])) // should return false (all distinct)
-console.log('Test 3:', containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])) // should return true (multiple duplicates)
-console.log('Test 4:', containsDuplicate([])) // should return false (empty array)
-console.log('Test 5:', containsDuplicate([1])) // should return false (single element)
-console.log('Test 6:', containsDuplicate([5, 5])) // should return true (immediate duplicate)
+// console.log('Test 1:', containsDuplicate([1, 2, 3, 1])) // should return true (1 appears twice)
+// console.log('Test 2:', containsDuplicate([1, 2, 3, 4])) // should return false (all distinct)
+// console.log('Test 3:', containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])) // should return true (multiple duplicates)
+// console.log('Test 4:', containsDuplicate([])) // should return false (empty array)
+// console.log('Test 5:', containsDuplicate([1])) // should return false (single element)
+// console.log('Test 6:', containsDuplicate([5, 5])) // should return true (immediate duplicate)
+
+// Problem: Valid Anagram
+// Given two strings, return true if they are anagrams of each other, 
+// and false otherwise. An anagram is a word formed by rearranging the letters 
+// of another word, using all the original letters exactly once.
+// (Case insensitive, ignore spaces)
+
+function validAnagram(s, t) {
+    const cleansedString1 = s.toLowerCase().replace(/ /g, '')
+    const cleansedString2 = t.toLowerCase().replace(/ /g, '')
+    const mapStr1 = new Map()
+    const mapStr2 = new Map()
+    for(let i = 0; i < cleansedString1.length; i++){
+        if (mapStr1.has(cleansedString1[i])){
+            mapStr1.set(cleansedString1[i], mapStr1.get(cleansedString1[i]) + 1)
+        } else {
+            mapStr1.set(cleansedString1[i], 1)
+        } 
+    }
+
+    for(let i = 0; i < cleansedString2.length; i++){
+        if (mapStr2.has(cleansedString2[i])){
+            mapStr2.set(cleansedString2[i], mapStr2.get(cleansedString2[i]), + 1)
+        } else {
+            mapStr2.set(cleansedString2[i], 1)
+        } 
+    }
+
+    if (mapStr1.size !== mapStr2.size){
+        return false
+    }
+    
+    for(let [key, value] of mapStr1){
+        if (!mapStr2.has(key) || mapStr2.get(key) !== value){
+            return false
+        }
+    }
+    return true
+
+}
+
+// Test cases:
+console.log('\n=== Testing Valid Anagram ===')
+console.log('Test 1:', validAnagram("anagram", "nagaram")) // should return true
+console.log('Test 2:', validAnagram("rat", "car")) // should return false  
+console.log('Test 3:', validAnagram("listen", "silent")) // should return true
+console.log('Test 4:', validAnagram("hello", "bello")) // should return false
+console.log('Test 5:', validAnagram("", "")) // should return true (both empty)
+console.log('Test 6:', validAnagram("a", "ab")) // should return false (different lengths)
+console.log('Test 7:', validAnagram("Astronomer", "Moon starer")) // should return true (ignore spaces/case)
