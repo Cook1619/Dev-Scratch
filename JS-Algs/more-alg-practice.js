@@ -446,11 +446,62 @@ function validAnagram(s, t) {
 }
 
 // Test cases:
-console.log('\n=== Testing Valid Anagram ===')
-console.log('Test 1:', validAnagram("anagram", "nagaram")) // should return true
-console.log('Test 2:', validAnagram("rat", "car")) // should return false  
-console.log('Test 3:', validAnagram("listen", "silent")) // should return true
-console.log('Test 4:', validAnagram("hello", "bello")) // should return false
-console.log('Test 5:', validAnagram("", "")) // should return true (both empty)
-console.log('Test 6:', validAnagram("a", "ab")) // should return false (different lengths)
-console.log('Test 7:', validAnagram("Astronomer", "Moon starer")) // should return true (ignore spaces/case)
+// console.log('\n=== Testing Valid Anagram ===')
+// console.log('Test 1:', validAnagram("anagram", "nagaram")) // should return true
+// console.log('Test 2:', validAnagram("rat", "car")) // should return false  
+// console.log('Test 3:', validAnagram("listen", "silent")) // should return true
+// console.log('Test 4:', validAnagram("hello", "bello")) // should return false
+// console.log('Test 5:', validAnagram("", "")) // should return true (both empty)
+// console.log('Test 6:', validAnagram("a", "ab")) // should return false (different lengths)
+// console.log('Test 7:', validAnagram("Astronomer", "Moon starer")) // should return true (ignore spaces/case)
+
+
+// Problem: Group Anagrams
+// Given an array of strings, group the anagrams together. 
+// Return the groups as an array of arrays.
+// Anagrams are words that use the same letters but in different order.
+
+function groupAnagrams(strs) {
+    const map = new Map()
+    
+    for (let i = 0; i < strs.length; i++) {
+        const currentWord = strs[i]
+        
+        // STEP 1: Create a signature that all anagrams will share
+        // Method: Sort the characters alphabetically
+        // "eat" -> ['e','a','t'] -> ['a','e','t'] -> "aet"
+        // "tea" -> ['t','e','a'] -> ['a','e','t'] -> "aet"  
+        // "ate" -> ['a','t','e'] -> ['a','e','t'] -> "aet"
+        const signature = currentWord.split('').sort().join('')
+        
+        // STEP 2: Check if we've seen this signature before
+        if (map.has(signature)) {
+            // We have! Add this word to the existing group
+            map.get(signature).push(currentWord)
+        } else {
+            // New signature! Create a new group with this word
+            map.set(signature, [currentWord])
+        }
+    }
+    
+    // STEP 3: Return all the groups as an array of arrays
+    // Map values are the arrays of anagram groups
+    return Array.from(map.values())
+}}
+// Test cases:
+console.log('\n=== Testing Group Anagrams ===')
+console.log('Test 1:', groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+// should return: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+// (order within groups and order of groups doesn't matter)
+
+console.log('Test 2:', groupAnagrams(["abc", "bca", "cab", "xyz"]))
+// should return: [["abc","bca","cab"], ["xyz"]]
+
+console.log('Test 3:', groupAnagrams(["a"]))
+// should return: [["a"]]
+
+console.log('Test 4:', groupAnagrams([""]))
+// should return: [[""]]
+
+console.log('Test 5:', groupAnagrams(["ab", "ba", "abc", "cba", "bac", "acb"]))
+// should return: [["ab","ba"], ["abc","cba","bac","acb"]]
