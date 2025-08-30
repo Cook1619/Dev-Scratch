@@ -487,21 +487,44 @@ function groupAnagrams(strs) {
     // STEP 3: Return all the groups as an array of arrays
     // Map values are the arrays of anagram groups
     return Array.from(map.values())
-}}
+}
 // Test cases:
-console.log('\n=== Testing Group Anagrams ===')
-console.log('Test 1:', groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
-// should return: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
-// (order within groups and order of groups doesn't matter)
+// console.log('\n=== Testing Group Anagrams ===')
+// console.log('Test 1:', groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+// // should return: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+// // (order within groups and order of groups doesn't matter)
 
-console.log('Test 2:', groupAnagrams(["abc", "bca", "cab", "xyz"]))
-// should return: [["abc","bca","cab"], ["xyz"]]
+// console.log('Test 2:', groupAnagrams(["abc", "bca", "cab", "xyz"]))
+// // should return: [["abc","bca","cab"], ["xyz"]]
 
-console.log('Test 3:', groupAnagrams(["a"]))
-// should return: [["a"]]
+// console.log('Test 3:', groupAnagrams(["a"]))
+// // should return: [["a"]]
 
-console.log('Test 4:', groupAnagrams([""]))
-// should return: [[""]]
+// console.log('Test 4:', groupAnagrams([""]))
+// // should return: [[""]]
 
-console.log('Test 5:', groupAnagrams(["ab", "ba", "abc", "cba", "bac", "acb"]))
+// console.log('Test 5:', groupAnagrams(["ab", "ba", "abc", "cba", "bac", "acb"]))
 // should return: [["ab","ba"], ["abc","cba","bac","acb"]]
+
+// Problem: Find the Longest String
+// Given an array of strings, return the longest string.
+// If there's a tie, return the first one you encounter.
+
+function findLongestString(strings) {
+    if(strings.length === 0) return []
+    let longest = strings[0]
+    for (let i = 0; i < strings.length; i++){
+        if(strings[i].length > longest.length){
+            longest = strings[i]
+        }
+    }
+    return longest
+}
+
+// Test cases:
+console.log('\n=== Testing Find Longest String ===')
+console.log('Test 1:', findLongestString(["cat", "dog", "elephant"])) // should return "elephant"
+console.log('Test 2:', findLongestString(["hello", "world"])) // should return "hello" (tie, so first one)
+console.log('Test 3:', findLongestString(["a"])) // should return "a"
+console.log('Test 4:', findLongestString(["short", "medium", "really long string"])) // should return "really long string"
+console.log('Test 5:', findLongestString([])) // should return null or "" (your choice for empty array)
