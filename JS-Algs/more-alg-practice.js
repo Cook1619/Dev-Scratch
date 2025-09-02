@@ -522,9 +522,31 @@ function findLongestString(strings) {
 }
 
 // Test cases:
-console.log('\n=== Testing Find Longest String ===')
-console.log('Test 1:', findLongestString(["cat", "dog", "elephant"])) // should return "elephant"
-console.log('Test 2:', findLongestString(["hello", "world"])) // should return "hello" (tie, so first one)
-console.log('Test 3:', findLongestString(["a"])) // should return "a"
-console.log('Test 4:', findLongestString(["short", "medium", "really long string"])) // should return "really long string"
-console.log('Test 5:', findLongestString([])) // should return null or "" (your choice for empty array)
+// console.log('\n=== Testing Find Longest String ===')
+// console.log('Test 1:', findLongestString(["cat", "dog", "elephant"])) // should return "elephant"
+// console.log('Test 2:', findLongestString(["hello", "world"])) // should return "hello" (tie, so first one)
+// console.log('Test 3:', findLongestString(["a"])) // should return "a"
+// console.log('Test 4:', findLongestString(["short", "medium", "really long string"])) // should return "really long string"
+// console.log('Test 5:', findLongestString([])) // should return null or "" (your choice for empty array)
+
+// Problem: Count Words in a Sentence
+// Given a sentence (string), count how many words are in it.
+// Words are separated by spaces. Ignore extra spaces.
+
+function countWords(sentence) {
+    const cleaned = sentence.trim().replace(/\s+/g, ' ')
+    
+    // Add this check for empty string after trimming
+    if(cleaned === '') return 0
+    
+    return cleaned.split(' ').length
+}
+
+// Test cases:
+console.log('\n=== Testing Count Words ===')
+console.log('Test 1:', countWords("Hello world")) // should return 2
+console.log('Test 2:', countWords("I love programming")) // should return 3
+console.log('Test 3:', countWords("JavaScript")) // should return 1
+console.log('Test 4:', countWords("")) // should return 0
+console.log('Test 5:', countWords("  extra       spaces      here  ")) // should return 3 (ignore extra spaces)
+console.log('Test 6:', countWords("a")) // should return 1
