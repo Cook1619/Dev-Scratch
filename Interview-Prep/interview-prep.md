@@ -292,3 +292,73 @@ A: I implement error handling at multiple layers: 1) Input validation errors wit
 
 Q: "Describe your testing strategy for a new feature"
 A: I use a multi-layered approach: 1) Unit tests for individual functions (learned from Jasmine/Karma experience), 2) Integration tests for API endpoints, 3) E2E tests for user workflows (extensive Cypress experience), 4) Manual testing for edge cases. At Shippers Edge, I enforced that all tests must pass before PR approval. At Mastery, I improved test reliability by eliminating shared mocks and creating isolated test environments.
+
+🔄 Idempotency in Distributed Systems
+What is Idempotency?
+"An idempotent operation is one that can be performed multiple times without changing the result beyond the initial application. In distributed systems, this means if a client retries a request due to network issues or timeouts, performing the operation multiple times won't cause unintended side effects."
+
+Making Transactions Idempotent - Your Approach:
+"From my experience with event-driven architecture using SQS and Kafka at Brooksource, idempotency is crucial for reliable message processing. Here's how I implement it:
+
+1. Idempotency Keys: Generate unique identifiers for each operation - typically UUIDs or composite keys. For payment processing, I'd use userId-timestamp-amount as an idempotency key.
+
+2. Database-Level Protection: Before processing, check if we've already processed this idempotency key. If yes, return the previous result instead of reprocessing.
+
+3. State Management: Store both the idempotency key and the operation result. This allows us to return the same response for duplicate requests.
+
+Example from my work: When implementing SQS message processing, I ensured each message included an idempotency key. Before processing any order update, we'd check our processed_messages table. If the key existed, we'd return the cached result instead of reprocessing the order."
+
+When to Use Idempotency:
+Payment processing (critical - can't charge twice)
+Order creation (prevent duplicate orders)
+Email notifications (don't spam users)
+Database updates (prevent data corruption)
+API retries (network reliability)
+
+// Circuit breakers
+⚡ Circuit Breakers
+What are Circuit Breakers?
+"Circuit breakers prevent cascade failures in distributed systems by temporarily stopping calls to a failing service, giving it time to recover. Like electrical circuit breakers, they 'trip' when they detect problems and 'reset' when conditions improve."
+
+Circuit Breaker States - Your Understanding:
+"From implementing resilient systems with external carrier APIs at Shippers Edge, I learned circuit breakers have three states:
+
+1. CLOSED (Normal Operation): All requests pass through. We monitor for failures.
+
+2. OPEN (Failing): All requests immediately return an error or fallback response. No calls reach the failing service.
+
+3. HALF-OPEN (Testing Recovery): Limited requests are allowed through to test if the service has recovered. If successful, we close the circuit. If not, we open it again."
+
+Implementation Strategy from Your Experience:
+"At Mastery Logistics, when integrating with external shipping rate APIs, I implemented circuit breakers because carrier services would occasionally go down. Here's my approach:
+
+1. Failure Threshold: Trip the breaker after 5 consecutive failures or 50% failure rate over 10 requests.
+
+2. Timeout Configuration: Open circuit for 30 seconds initially, then exponential backoff (30s, 60s, 120s).
+
+3. Fallback Strategy: Return cached shipping rates or default estimates when the circuit is open.
+
+4. Monitoring: Track circuit breaker state changes and alert when services are degraded.
+
+The business impact was significant - instead of users seeing error pages when carrier APIs were down, they got estimated rates and could complete their orders."
+
+When to Use Circuit Breakers:
+"Based on my experience, implement circuit breakers for:
+
+External API calls (third-party services you don't control)
+Database connections (prevent connection pool exhaustion)
+Microservice communication (prevent cascade failures)
+Resource-intensive operations (protect against overload)
+The key insight from my work with Kafka and SQS is that circuit breakers work best combined with async processing - when a circuit opens, you can queue requests for later processing instead of failing them completely."
+
+Real-World Example from Your Experience:
+"During the ColdFusion to Node.js migration at Shippers Edge, we had situations where the legacy system would become unresponsive under load. I implemented circuit breakers around calls to the legacy APIs with a fallback to cached data. This allowed the new Node.js system to remain responsive even when the legacy system was struggling, providing a seamless user experience during the transition period."
+
+
+
+🎯 Interview-Ready Sound Bites:
+On Idempotency: "Idempotency is essential for reliable distributed systems. In my SQS implementations, I always include unique identifiers and check for duplicate processing to ensure operations can be safely retried."
+
+On Circuit Breakers: "Circuit breakers prevent your healthy services from being taken down by failing dependencies. When I integrated external carrier APIs, circuit breakers with intelligent fallbacks kept our shipping rate calculator responsive even during third-party outages."
+
+Combined Strategy: "I often combine idempotency with circuit breakers - idempotent operations ensure safe retries, while circuit breakers prevent overwhelming failing services. Together, they create robust, self-healing systems."
