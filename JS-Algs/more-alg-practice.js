@@ -543,10 +543,33 @@ function countWords(sentence) {
 }
 
 // Test cases:
-console.log('\n=== Testing Count Words ===')
-console.log('Test 1:', countWords("Hello world")) // should return 2
-console.log('Test 2:', countWords("I love programming")) // should return 3
-console.log('Test 3:', countWords("JavaScript")) // should return 1
-console.log('Test 4:', countWords("")) // should return 0
-console.log('Test 5:', countWords("  extra       spaces      here  ")) // should return 3 (ignore extra spaces)
-console.log('Test 6:', countWords("a")) // should return 1
+// console.log('\n=== Testing Count Words ===')
+// console.log('Test 1:', countWords("Hello world")) // should return 2
+// console.log('Test 2:', countWords("I love programming")) // should return 3
+// console.log('Test 3:', countWords("JavaScript")) // should return 1
+// console.log('Test 4:', countWords("")) // should return 0
+// console.log('Test 5:', countWords("  extra       spaces      here  ")) // should return 3 (ignore extra spaces)
+// console.log('Test 6:', countWords("a")) // should return 1
+
+
+// Problem: Reverse a String
+// Given a string, return it reversed.
+// Simple as that - just flip the characters around!
+
+function reverseString(str) {
+    const newStr = str.split('')
+    let returnedStr = []
+    for(let i = 0; i < newStr.length; i++){
+        returnedStr.unshift(str[i])
+    }
+    return returnedStr.join('') || ''
+}
+
+// Test cases:
+console.log('\n=== Testing Reverse String ===')
+console.log('Test 1:', reverseString("hello")) // should return "olleh"
+console.log('Test 2:', reverseString("JavaScript")) // should return "tpircSavaJ"
+console.log('Test 3:', reverseString("a")) // should return "a"
+console.log('Test 4:', reverseString("")) // should return ""
+console.log('Test 5:', reverseString("12345")) // should return "54321"
+console.log('Test 6:', reverseString("racecar")) // should return "racecar" (palindrome!)
