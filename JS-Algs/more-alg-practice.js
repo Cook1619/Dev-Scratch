@@ -573,3 +573,25 @@ console.log('Test 3:', reverseString("a")) // should return "a"
 console.log('Test 4:', reverseString("")) // should return ""
 console.log('Test 5:', reverseString("12345")) // should return "54321"
 console.log('Test 6:', reverseString("racecar")) // should return "racecar" (palindrome!)
+
+// Problem: Find the Second Largest Number
+// Given an array of numbers, return the second largest number.
+// If there's no second largest (like all numbers are the same), return null.
+
+function findSecondLargest(arr) {
+    const mySet = new Set(arr)
+    const myArr = [...mySet].sort((a, b) => a - b)
+    if (myArr.length === 1 || myArr.length === 0) return null
+    return myArr[myArr.length - 2]
+}
+
+// Test cases:
+console.log('\n=== Testing Find Second Largest ===')
+console.log('Test 1:', findSecondLargest([1, 3, 2, 8, 5])) // should return 5 (8 is largest, 5 is second)
+console.log('Test 2:', findSecondLargest([10, 10, 10])) // should return null (all same numbers)
+console.log('Test 3:', findSecondLargest([5])) // should return null (only one number)
+console.log('Test 4:', findSecondLargest([7, 7, 3, 3, 1])) // should return 3 (7 is largest, 3 is second)
+console.log('Test 5:', findSecondLargest([100, 50, 75, 25])) // should return 75
+console.log('Test 6:', findSecondLargest([])) // should return null (empty array)
+console.log('Test 7:', findSecondLargest([42, 42])) // should return null (only one unique number)
+console.log('Test 8:', findSecondLargest([-1, -5, -3])) // should return -3 (-1 is largest, -3 is second)
