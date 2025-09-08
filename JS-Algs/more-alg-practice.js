@@ -586,12 +586,36 @@ function findSecondLargest(arr) {
 }
 
 // Test cases:
-console.log('\n=== Testing Find Second Largest ===')
-console.log('Test 1:', findSecondLargest([1, 3, 2, 8, 5])) // should return 5 (8 is largest, 5 is second)
-console.log('Test 2:', findSecondLargest([10, 10, 10])) // should return null (all same numbers)
-console.log('Test 3:', findSecondLargest([5])) // should return null (only one number)
-console.log('Test 4:', findSecondLargest([7, 7, 3, 3, 1])) // should return 3 (7 is largest, 3 is second)
-console.log('Test 5:', findSecondLargest([100, 50, 75, 25])) // should return 75
-console.log('Test 6:', findSecondLargest([])) // should return null (empty array)
-console.log('Test 7:', findSecondLargest([42, 42])) // should return null (only one unique number)
-console.log('Test 8:', findSecondLargest([-1, -5, -3])) // should return -3 (-1 is largest, -3 is second)
+// console.log('\n=== Testing Find Second Largest ===')
+// console.log('Test 1:', findSecondLargest([1, 3, 2, 8, 5])) // should return 5 (8 is largest, 5 is second)
+// console.log('Test 2:', findSecondLargest([10, 10, 10])) // should return null (all same numbers)
+// console.log('Test 3:', findSecondLargest([5])) // should return null (only one number)
+// console.log('Test 4:', findSecondLargest([7, 7, 3, 3, 1])) // should return 3 (7 is largest, 3 is second)
+// console.log('Test 5:', findSecondLargest([100, 50, 75, 25])) // should return 75
+// console.log('Test 6:', findSecondLargest([])) // should return null (empty array)
+// console.log('Test 7:', findSecondLargest([42, 42])) // should return null (only one unique number)
+// console.log('Test 8:', findSecondLargest([-1, -5, -3])) // should return -3 (-1 is largest, -3 is second)
+
+// Problem: Find Common Elements
+// Given two arrays, return a new array containing elements that appear in both arrays.
+// Don't worry about duplicates - if an element appears in both, include it once.
+
+function findCommonElements(arr1, arr2) {
+    let newArr = []
+    for(let i = 0; i < arr1.length; i++){
+        if (arr2.includes(arr1[i])){
+            newArr.push(arr1[i])
+        }
+    }
+    return newArr
+}
+
+// Test cases:
+console.log('\n=== Testing Find Common Elements ===')
+console.log('Test 1:', findCommonElements([1, 2, 3], [2, 3, 4])) // should return [2, 3]
+console.log('Test 2:', findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd'])) // should return ['b', 'c']
+console.log('Test 3:', findCommonElements([1, 2, 3], [4, 5, 6])) // should return [] (no common elements)
+console.log('Test 4:', findCommonElements([], [1, 2, 3])) // should return [] (empty first array)
+console.log('Test 5:', findCommonElements([1, 2, 3], [])) // should return [] (empty second array)
+console.log('Test 6:', findCommonElements([1, 1, 2], [2, 2, 3])) // should return [2] (no duplicates in result)
+console.log('Test 7:', findCommonElements([5], [5])) // should return [5] (single match)
