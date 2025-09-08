@@ -610,6 +610,11 @@ function findCommonElements(arr1, arr2) {
     return newArr
 }
 
+function findCommonElements(arr1, arr2) {
+    const set2 = new Set(arr2)
+    return arr1.filter(item => set2.has(item))
+}
+
 // Test cases:
 console.log('\n=== Testing Find Common Elements ===')
 console.log('Test 1:', findCommonElements([1, 2, 3], [2, 3, 4])) // should return [2, 3]
