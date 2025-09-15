@@ -616,11 +616,11 @@ function findCommonElements(arr1, arr2) {
 }
 
 // Test cases:
-console.log('\n=== Testing Find Common Elements ===')
-console.log('Test 1:', findCommonElements([1, 2, 3], [2, 3, 4])) // should return [2, 3]
-console.log('Test 2:', findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd'])) // should return ['b', 'c']
-console.log('Test 3:', findCommonElements([1, 2, 3], [4, 5, 6])) // should return [] (no common elements)
-console.log('Test 4:', findCommonElements([], [1, 2, 3])) // should return [] (empty first array)
-console.log('Test 5:', findCommonElements([1, 2, 3], [])) // should return [] (empty second array)
-console.log('Test 6:', findCommonElements([1, 1, 2], [2, 2, 3])) // should return [2] (no duplicates in result)
-console.log('Test 7:', findCommonElements([5], [5])) // should return [5] (single match)
+// console.log('\n=== Testing Find Common Elements ===')
+// console.log('Test 1:', findCommonElements([1, 2, 3], [2, 3, 4])) // should return [2, 3]
+// console.log('Test 2:', findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd'])) // should return ['b', 'c']
+// console.log('Test 3:', findCommonElements([1, 2, 3], [4, 5, 6])) // should return [] (no common elements)
+// console.log('Test 4:', findCommonElements([], [1, 2, 3])) // should return [] (empty first array)
+// console.log('Test 5:', findCommonElements([1, 2, 3], [])) // should return [] (empty second array)
+// console.log('Test 6:', findCommonElements([1, 1, 2], [2, 2, 3])) // should return [2] (no duplicates in result)
+// console.log('Test 7:', findCommonElements([5], [5])) // should return [5] (single match)
