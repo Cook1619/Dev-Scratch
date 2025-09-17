@@ -624,3 +624,22 @@ function findCommonElements(arr1, arr2) {
 // console.log('Test 5:', findCommonElements([1, 2, 3], [])) // should return [] (empty second array)
 // console.log('Test 6:', findCommonElements([1, 1, 2], [2, 2, 3])) // should return [2] (no duplicates in result)
 // console.log('Test 7:', findCommonElements([5], [5])) // should return [5] (single match)
+
+// Problem: Find the Smallest Number
+// Given an array of numbers, return the smallest number.
+// This is the opposite of your findMax function!
+
+function findMin(arr) {
+     return arr.reduce((acc, currentValue) => {
+        return acc < currentValue ? acc : currentValue
+    }, arr[0])
+}
+
+// Test cases:
+console.log('\n=== Testing Find Min ===')
+console.log('Test 1:', findMin([5, 2, 8, 1, 9])) // should return 1
+console.log('Test 2:', findMin([10])) // should return 10 (single element)
+console.log('Test 3:', findMin([3, 3, 3])) // should return 3 (all same)
+console.log('Test 4:', findMin([-5, -1, -10, -3])) // should return -10 (negative numbers)
+console.log('Test 5:', findMin([100, 50, 25, 75])) // should return 25
+console.log('Test 6:', findMin([0, 5, -2, 3])) // should return -2 (includes zero and negative)
