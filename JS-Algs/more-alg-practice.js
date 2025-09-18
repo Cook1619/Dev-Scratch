@@ -636,10 +636,36 @@ function findMin(arr) {
 }
 
 // Test cases:
-console.log('\n=== Testing Find Min ===')
-console.log('Test 1:', findMin([5, 2, 8, 1, 9])) // should return 1
-console.log('Test 2:', findMin([10])) // should return 10 (single element)
-console.log('Test 3:', findMin([3, 3, 3])) // should return 3 (all same)
-console.log('Test 4:', findMin([-5, -1, -10, -3])) // should return -10 (negative numbers)
-console.log('Test 5:', findMin([100, 50, 25, 75])) // should return 25
-console.log('Test 6:', findMin([0, 5, -2, 3])) // should return -2 (includes zero and negative)
+// console.log('\n=== Testing Find Min ===')
+// console.log('Test 1:', findMin([5, 2, 8, 1, 9])) // should return 1
+// console.log('Test 2:', findMin([10])) // should return 10 (single element)
+// console.log('Test 3:', findMin([3, 3, 3])) // should return 3 (all same)
+// console.log('Test 4:', findMin([-5, -1, -10, -3])) // should return -10 (negative numbers)
+// console.log('Test 5:', findMin([100, 50, 25, 75])) // should return 25
+// console.log('Test 6:', findMin([0, 5, -2, 3])) // should return -2 (includes zero and negative)
+// Problem: Capitalize First Letter
+// Given a string, return a new string where the first letter of each word is capitalized
+// and the rest are lowercase. Words are separated by spaces.
+
+function capitalizeWords(str) {
+    if (str.length === 0) return ''    
+    const words = str.split(' ')  // ["hello", "world"]
+    
+    const capitalizedWords = words.map(word => {
+        if (word.length === 0) return word  // Handle empty strings from extra spaces
+        return word[0].toUpperCase() + word.slice(1).toLowerCase()
+    })
+    
+    return capitalizedWords.join(' ')
+}
+
+// Test cases:
+console.log('\n=== Testing Capitalize Words ===')
+console.log('Test 1:', capitalizeWords("hello world")) // should return "Hello World"
+console.log('Test 2:', capitalizeWords("javascript is awesome")) // should return "Javascript Is Awesome"
+console.log('Test 3:', capitalizeWords("HELLO WORLD")) // should return "Hello World" (handle all caps)
+console.log('Test 4:', capitalizeWords("a")) // should return "A" (single letter)
+console.log('Test 5:', capitalizeWords("")) // should return "" (empty string)
+console.log('Test 6:', capitalizeWords("the quick brown fox")) // should return "The Quick Brown Fox"
+console.log('Test 7:', capitalizeWords("MiXeD cAsE wOrDs")) // should return "Mixed Case Words"
+console.log('Test 8:', capitalizeWords("one")) // should return "One" (single word)
