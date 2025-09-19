@@ -660,12 +660,45 @@ function capitalizeWords(str) {
 }
 
 // Test cases:
-console.log('\n=== Testing Capitalize Words ===')
-console.log('Test 1:', capitalizeWords("hello world")) // should return "Hello World"
-console.log('Test 2:', capitalizeWords("javascript is awesome")) // should return "Javascript Is Awesome"
-console.log('Test 3:', capitalizeWords("HELLO WORLD")) // should return "Hello World" (handle all caps)
-console.log('Test 4:', capitalizeWords("a")) // should return "A" (single letter)
-console.log('Test 5:', capitalizeWords("")) // should return "" (empty string)
-console.log('Test 6:', capitalizeWords("the quick brown fox")) // should return "The Quick Brown Fox"
-console.log('Test 7:', capitalizeWords("MiXeD cAsE wOrDs")) // should return "Mixed Case Words"
-console.log('Test 8:', capitalizeWords("one")) // should return "One" (single word)
+// console.log('\n=== Testing Capitalize Words ===')
+// console.log('Test 1:', capitalizeWords("hello world")) // should return "Hello World"
+// console.log('Test 2:', capitalizeWords("javascript is awesome")) // should return "Javascript Is Awesome"
+// console.log('Test 3:', capitalizeWords("HELLO WORLD")) // should return "Hello World" (handle all caps)
+// console.log('Test 4:', capitalizeWords("a")) // should return "A" (single letter)
+// console.log('Test 5:', capitalizeWords("")) // should return "" (empty string)
+// console.log('Test 6:', capitalizeWords("the quick brown fox")) // should return "The Quick Brown Fox"
+// console.log('Test 7:', capitalizeWords("MiXeD cAsE wOrDs")) // should return "Mixed Case Words"
+// console.log('Test 8:', capitalizeWords("one")) // should return "One" (single word)
+
+// Problem: Check if Array is Sorted
+// Given an array of numbers, return true if the array is sorted in ascending order,
+// false otherwise. Empty arrays and single-element arrays are considered sorted.
+
+function isSorted(arr) {
+  // For an empty array or an array with a single element, it's considered sorted.
+  if (arr.length <= 1) {
+    return true;
+  }
+
+  // Use every() to check if each element is less than or equal to its successor.
+  return arr.every((currentValue, index, array) => {
+    // For the last element, there's no successor to compare with, so it's always considered valid.
+    if (index === array.length - 1) {
+      return true;
+    }
+    // Compare the current element with the next element.
+    return currentValue <= array[index + 1];
+  });
+}
+
+// Test cases:
+console.log('\n=== Testing Is Sorted ===')
+console.log('Test 1:', isSorted([1, 2, 3, 4, 5])) // should return true
+console.log('Test 2:', isSorted([1, 3, 2, 4, 5])) // should return false (3 > 2)
+console.log('Test 3:', isSorted([5, 4, 3, 2, 1])) // should return false (descending)
+console.log('Test 4:', isSorted([1, 1, 2, 2, 3])) // should return true (duplicates are okay)
+console.log('Test 5:', isSorted([42])) // should return true (single element)
+console.log('Test 6:', isSorted([])) // should return true (empty array)
+console.log('Test 7:', isSorted([1, 2, 2, 3, 3, 3])) // should return true (equal values allowed)
+console.log('Test 8:', isSorted([-5, -3, -1, 0, 2])) // should return true (negative numbers)
+console.log('Test 9:', isSorted([10, 5])) // should return false (two elements, wrong order)
