@@ -702,3 +702,36 @@ console.log('Test 6:', isSorted([])) // should return true (empty array)
 console.log('Test 7:', isSorted([1, 2, 2, 3, 3, 3])) // should return true (equal values allowed)
 console.log('Test 8:', isSorted([-5, -3, -1, 0, 2])) // should return true (negative numbers)
 console.log('Test 9:', isSorted([10, 5])) // should return false (two elements, wrong order)
+
+
+// Problem: Find Unique Elements
+// Given an array, return a new array containing only the elements that appear exactly once.
+// This is different from removing duplicates - we want elements that are NOT duplicated at all.
+
+function findUniqueElements(arr) {
+    // Your solution here!
+    // Hint: Count how many times each element appears, then filter for count === 1
+    // Think about using a Map to count occurrences
+    const numberMap = new Map();
+    for(let i = 0; i < arr.length; i++){
+        const currentValue = arr[i]
+        if(numberMap.has(currentValue)){
+            numberMap.set(currentValue, numberMap.get(currentValue) + 1)
+        }else {
+            numberMap.set(currentValue, 1)
+        }
+    }
+    return arr.filter(element => numberMap.get(element) === 1)
+
+}
+
+// Test cases:
+console.log('\n=== Testing Find Unique Elements ===')
+console.log('Test 1:', findUniqueElements([1, 2, 2, 3, 4, 4, 5])) // should return [1, 3, 5]
+console.log('Test 2:', findUniqueElements([1, 1, 2, 2, 3, 3])) // should return [] (no unique elements)
+console.log('Test 3:', findUniqueElements([1, 2, 3, 4, 5])) // should return [1, 2, 3, 4, 5] (all unique)
+console.log('Test 4:', findUniqueElements(['a', 'b', 'a', 'c', 'b', 'd'])) // should return ['c', 'd']
+console.log('Test 5:', findUniqueElements([])) // should return [] (empty array)
+console.log('Test 6:', findUniqueElements([7])) // should return [7] (single element)
+console.log('Test 7:', findUniqueElements([1, 1, 1, 2, 2, 3])) // should return [3] (only 3 appears once)
+console.log('Test 8:', findUniqueElements([5, 5, 5, 5])) // should return [] (all duplicated)

@@ -138,7 +138,6 @@ console.log('Counting hello', countCharacters("javascript"))   // Should show: j
 
 // Problem 2: Find First Non-Repeating Character
 function firstNonRepeating(str) {
-    console.log(`\n--- Finding first non-repeating character in: "${str}" ---`)
     const strMap = new Map()
     // TODO: Use a map to count characters, then find first with count of 1
     for (let i = 0; i < str.length; i++) {
