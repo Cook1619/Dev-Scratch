@@ -692,16 +692,16 @@ function isSorted(arr) {
 }
 
 // Test cases:
-console.log('\n=== Testing Is Sorted ===')
-console.log('Test 1:', isSorted([1, 2, 3, 4, 5])) // should return true
-console.log('Test 2:', isSorted([1, 3, 2, 4, 5])) // should return false (3 > 2)
-console.log('Test 3:', isSorted([5, 4, 3, 2, 1])) // should return false (descending)
-console.log('Test 4:', isSorted([1, 1, 2, 2, 3])) // should return true (duplicates are okay)
-console.log('Test 5:', isSorted([42])) // should return true (single element)
-console.log('Test 6:', isSorted([])) // should return true (empty array)
-console.log('Test 7:', isSorted([1, 2, 2, 3, 3, 3])) // should return true (equal values allowed)
-console.log('Test 8:', isSorted([-5, -3, -1, 0, 2])) // should return true (negative numbers)
-console.log('Test 9:', isSorted([10, 5])) // should return false (two elements, wrong order)
+// console.log('\n=== Testing Is Sorted ===')
+// console.log('Test 1:', isSorted([1, 2, 3, 4, 5])) // should return true
+// console.log('Test 2:', isSorted([1, 3, 2, 4, 5])) // should return false (3 > 2)
+// console.log('Test 3:', isSorted([5, 4, 3, 2, 1])) // should return false (descending)
+// console.log('Test 4:', isSorted([1, 1, 2, 2, 3])) // should return true (duplicates are okay)
+// console.log('Test 5:', isSorted([42])) // should return true (single element)
+// console.log('Test 6:', isSorted([])) // should return true (empty array)
+// console.log('Test 7:', isSorted([1, 2, 2, 3, 3, 3])) // should return true (equal values allowed)
+// console.log('Test 8:', isSorted([-5, -3, -1, 0, 2])) // should return true (negative numbers)
+// console.log('Test 9:', isSorted([10, 5])) // should return false (two elements, wrong order)
 
 
 // Problem: Find Unique Elements
@@ -726,12 +726,35 @@ function findUniqueElements(arr) {
 }
 
 // Test cases:
-console.log('\n=== Testing Find Unique Elements ===')
-console.log('Test 1:', findUniqueElements([1, 2, 2, 3, 4, 4, 5])) // should return [1, 3, 5]
-console.log('Test 2:', findUniqueElements([1, 1, 2, 2, 3, 3])) // should return [] (no unique elements)
-console.log('Test 3:', findUniqueElements([1, 2, 3, 4, 5])) // should return [1, 2, 3, 4, 5] (all unique)
-console.log('Test 4:', findUniqueElements(['a', 'b', 'a', 'c', 'b', 'd'])) // should return ['c', 'd']
-console.log('Test 5:', findUniqueElements([])) // should return [] (empty array)
-console.log('Test 6:', findUniqueElements([7])) // should return [7] (single element)
-console.log('Test 7:', findUniqueElements([1, 1, 1, 2, 2, 3])) // should return [3] (only 3 appears once)
-console.log('Test 8:', findUniqueElements([5, 5, 5, 5])) // should return [] (all duplicated)
+// console.log('\n=== Testing Find Unique Elements ===')
+// console.log('Test 1:', findUniqueElements([1, 2, 2, 3, 4, 4, 5])) // should return [1, 3, 5]
+// console.log('Test 2:', findUniqueElements([1, 1, 2, 2, 3, 3])) // should return [] (no unique elements)
+// console.log('Test 3:', findUniqueElements([1, 2, 3, 4, 5])) // should return [1, 2, 3, 4, 5] (all unique)
+// console.log('Test 4:', findUniqueElements(['a', 'b', 'a', 'c', 'b', 'd'])) // should return ['c', 'd']
+// console.log('Test 5:', findUniqueElements([])) // should return [] (empty array)
+// console.log('Test 6:', findUniqueElements([7])) // should return [7] (single element)
+// console.log('Test 7:', findUniqueElements([1, 1, 1, 2, 2, 3])) // should return [3] (only 3 appears once)
+// console.log('Test 8:', findUniqueElements([5, 5, 5, 5])) // should return [] (all duplicated)
+
+
+// Problem: Sum of Digits
+// Given a positive integer, return the sum of all its individual digits.
+// For example: 123 → 1 + 2 + 3 = 6
+
+function sumOfDigits(num) {
+    // Your solution here!
+   const splitNums = String(num).split('')
+   return splitNums.reduce((acc, curr) => {
+        return acc + Number(curr)
+   }, 0)
+}
+
+// Test cases:
+console.log('\n=== Testing Sum of Digits ===')
+console.log('Test 1:', sumOfDigits(123)) // should return 6 (1 + 2 + 3)
+console.log('Test 2:', sumOfDigits(456)) // should return 15 (4 + 5 + 6)
+console.log('Test 3:', sumOfDigits(7)) // should return 7 (single digit)
+console.log('Test 4:', sumOfDigits(999)) // should return 27 (9 + 9 + 9)
+console.log('Test 5:', sumOfDigits(1000)) // should return 1 (1 + 0 + 0 + 0)
+console.log('Test 6:', sumOfDigits(12345)) // should return 15 (1 + 2 + 3 + 4 + 5)
+console.log('Test 7:', sumOfDigits(101)) // should return 2 (1 + 0 + 1)
