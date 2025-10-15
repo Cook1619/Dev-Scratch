@@ -750,11 +750,62 @@ function sumOfDigits(num) {
 }
 
 // Test cases:
-console.log('\n=== Testing Sum of Digits ===')
-console.log('Test 1:', sumOfDigits(123)) // should return 6 (1 + 2 + 3)
-console.log('Test 2:', sumOfDigits(456)) // should return 15 (4 + 5 + 6)
-console.log('Test 3:', sumOfDigits(7)) // should return 7 (single digit)
-console.log('Test 4:', sumOfDigits(999)) // should return 27 (9 + 9 + 9)
-console.log('Test 5:', sumOfDigits(1000)) // should return 1 (1 + 0 + 0 + 0)
-console.log('Test 6:', sumOfDigits(12345)) // should return 15 (1 + 2 + 3 + 4 + 5)
-console.log('Test 7:', sumOfDigits(101)) // should return 2 (1 + 0 + 1)
+// console.log('\n=== Testing Sum of Digits ===')
+// console.log('Test 1:', sumOfDigits(123)) // should return 6 (1 + 2 + 3)
+// console.log('Test 2:', sumOfDigits(456)) // should return 15 (4 + 5 + 6)
+// console.log('Test 3:', sumOfDigits(7)) // should return 7 (single digit)
+// console.log('Test 4:', sumOfDigits(999)) // should return 27 (9 + 9 + 9)
+// console.log('Test 5:', sumOfDigits(1000)) // should return 1 (1 + 0 + 0 + 0)
+// console.log('Test 6:', sumOfDigits(12345)) // should return 15 (1 + 2 + 3 + 4 + 5)
+// console.log('Test 7:', sumOfDigits(101)) // should return 2 (1 + 0 + 1)
+
+// Problem: Remove Duplicates (Keep Order)
+// Given an array, return a new array with duplicate values removed,
+// but keep the FIRST occurrence of each element (maintain original order).
+// This is different from your findUniqueElements - we keep one copy of each element.
+
+function removeDuplicates(arr) {
+    return [...new Set(arr)]
+}
+
+// Test cases:
+// console.log('\n=== Testing Remove Duplicates ===')
+// console.log('Test 1:', removeDuplicates([1, 2, 2, 3, 3, 3])) // should return [1, 2, 3]
+// console.log('Test 2:', removeDuplicates(['a', 'b', 'a', 'c', 'b', 'd'])) // should return ['a', 'b', 'c', 'd']
+// console.log('Test 3:', removeDuplicates([])) // should return []
+// console.log('Test 4:', removeDuplicates([1, 1, 1])) // should return [1]
+// console.log('Test 5:', removeDuplicates([1, 2, 3, 4, 5])) // should return [1, 2, 3, 4, 5] (no duplicates)
+// console.log('Test 6:', removeDuplicates([5, 3, 5, 2, 3, 1])) // should return [5, 3, 2, 1] (order matters!)
+// console.log('Test 7:', removeDuplicates([42])) // should return [42] (single element)
+// // Problem: Find the Median
+// Given an array of numbers, return the median value.
+// If the array has odd length, return the middle element.
+// If the array has even length, return the average of the two middle elements.
+
+function findMedian(arr) {
+    // Step 1: Sort the array first
+    const sorted = [...arr].sort((a, b) => a - b)
+    const length = sorted.length
+    
+    // Step 2: Check if odd or even length
+    if (length % 2 === 1) {
+        // Odd length: return middle element
+        const middleIndex = Math.floor(length / 2)
+        return sorted[middleIndex]
+    } else {
+        // Even length: return average of two middle elements
+        const rightMiddle = length / 2
+        const leftMiddle = rightMiddle - 1
+        return (sorted[leftMiddle] + sorted[rightMiddle]) / 2
+    }
+}
+
+// Test cases:
+console.log('\n=== Testing Find Median ===')
+console.log('Test 1:', findMedian([3, 1, 4, 1, 5])) // should return 3 (sorted: [1,1,3,4,5], middle is 3)
+console.log('Test 2:', findMedian([1, 2, 3, 4])) // should return 2.5 (sorted: [1,2,3,4], average of 2 and 3)
+console.log('Test 3:', findMedian([7])) // should return 7 (single element)
+console.log('Test 4:', findMedian([5, 2])) // should return 3.5 (average of 2 and 5)
+console.log('Test 5:', findMedian([9, 1, 8, 2, 7])) // should return 7 (sorted: [1,2,7,8,9])
+console.log('Test 6:', findMedian([10, 20, 30, 40, 50, 60])) // should return 35 (average of 30 and 40)
+console.log('Test 7:', findMedian([100])) // should return 100 (single element)
